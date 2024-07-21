@@ -16,7 +16,7 @@ const AttackSurfaceSchema = new mongoose.Schema(
     },
     screenshot: {
       type: String,
-      required: [true, "Attack Surface screenshot required"],
+      // required: [true, "Attack Surface screenshot required"],
     },
     mitigationSteps: {
       type: String,
