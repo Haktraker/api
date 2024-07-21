@@ -12,16 +12,17 @@ cloudinary.config({
 });
 
 exports.cloudinaryImageUploadMethod = async (file) => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     cloudinary.v2.uploader.upload(file, (err, res) => {
-      if (err) return res.status(500).send("upload image error");
-
-      resolve({
-        res: res.secure_url,
-      });
+      if (err) {
+        console.error("Cloudinary upload error: ", err);
+        return reject(new Error("Upload image error"));
+      }
+      resolve({ res: res.secure_url });
     });
   });
 };
+
 
 exports.getOne = (Model, populationOpt) =>
   asyncHandler(async (req, res, next) => {
