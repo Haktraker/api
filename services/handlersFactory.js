@@ -15,7 +15,7 @@ exports.cloudinaryImageUploadMethod = async (file) => {
   return new Promise((resolve) => {
     cloudinary.v2.uploader.upload(file, (err, res) => {
       if (err) return res.status(500).send("upload image error");
-      console.log(err, "err 15");
+
       resolve({
         res: res.secure_url,
       });
