@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const AttackSurfaceSchema = new mongoose.Schema(
   {
+    detectionTime: {
+      type: Date,
+      required: [true, "Attack Surface detectionTime required"],
+    },
     affectedSystems: {
       type: String,
       required: [true, "Attack Surface affectedSystems required"],
@@ -21,6 +25,12 @@ const AttackSurfaceSchema = new mongoose.Schema(
     mitigationSteps: {
       type: String,
       required: [true, "Attack Surface mitigationSteps required"],
+    },
+    status: {
+      type: String,
+      enum: ["investigating", "resolved", "unresolved"],
+      default: "unresolved",
+      required: [true, "Attack Surface status required"],
     },
   },
   { timestamps: true }

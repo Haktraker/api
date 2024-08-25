@@ -23,6 +23,19 @@ const EDRXDRDetectionsRoute = require("./Detections/EDRXDRDetectionsRoute");
 // NDRDetection
 const NDRDetectionsRoute = require("./Detections/NDRDetectionsRoute");
 
+// Executive Dashboard
+const SecurityPostureScoreRoute = require("./Executive_Dashboard/SecurityPostureScoreRoute");
+const NonComplianceGapsOverviewRoute = require("./Executive_Dashboard/NonComplianceGapsOverviewRoute");
+const ThreatCompositionOverviewRoute = require("./Executive_Dashboard/ThreatCompositionOverviewRoute");
+const SecurityBreachIndicatorsRoute = require("./Executive_Dashboard/SecurityBreachIndicatorsRoute");
+const QuarterlyIncidentRoute = require("./Executive_Dashboard/QuarterlyIncidentRoute");
+const TtdTtrRoute = require("./Executive_Dashboard/TtdTtrRoute");
+const DigitalRiskIntelligenceRoute = require("./Executive_Dashboard/DigitalRiskIntelligenceRoute");
+
+// Attack Secnarios
+const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
+const CyberKillChainRoute = require("./Attack_Scenarios/CyberKillChainRoute");
+
 const userRoute = require("./userRoute");
 const authRoute = require("./authRoute");
 const { limiter } = require("../middlewares/rateLimiterMiddleware");
@@ -64,9 +77,38 @@ const mountRoutes = (app) => {
     vulnerabilitiesIntelligencesRoute
   );
   // EDRXDR Detections
-  app.use("/api/detections/drxdr-detections", EDRXDRDetectionsRoute);
+  app.use("/api/detections/edrxdr-detections", EDRXDRDetectionsRoute);
   // NDR Detections
   app.use("/api/detections/ndr-detections", NDRDetectionsRoute);
+
+  // Executive Dashboard
+  app.use(
+    "/api/executive-dashboard/security-posture-score",
+    SecurityPostureScoreRoute
+  );
+  app.use(
+    "/api/executive-dashboard/non-compliance-gaps-overview",
+    NonComplianceGapsOverviewRoute
+  );
+  app.use(
+    "/api/executive-dashboard/threat-composition-overview",
+    ThreatCompositionOverviewRoute
+  );
+  app.use(
+    "/api/executive-dashboard/security-breach-indicators",
+    SecurityBreachIndicatorsRoute
+  );
+  app.use(
+    "/api/executive-dashboard/quarterly-incident",
+    QuarterlyIncidentRoute
+  );
+  app.use("/api/executive-dashboard/ttd-ttr", TtdTtrRoute);
+  app.use(
+    "/api/executive-dashboard/digital-risk-intelligence",
+    DigitalRiskIntelligenceRoute
+  );
+  app.use("/api/attack-scenarios/mitre-attacks", MitreAttacksRoute);
+  app.use("/api/attack-scenarios/cyber-kill-chain", CyberKillChainRoute);
 
   app.use("/api/users", limiter, userRoute);
   app.use("/api/auth", authRoute);

@@ -1,6 +1,9 @@
-const AccountTakeover = require("../models/AccountTakeover");
+const { uploadSingleFile } = require("../middlewares/uploadImagesMiddleWare");
+const AccountTakeover = require("../models/Account_take_over/AccountTakeover");
 const factory = require("./handlersFactory");
 
+
+exports.uploadScreenshot = uploadSingleFile("screenshot");
 // @desc      Create AccountTakeover
 // @route     POST /api/account-takeover
 // @access    private
