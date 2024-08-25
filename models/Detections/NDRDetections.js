@@ -4,49 +4,55 @@ const NDRDetectionsSchema = new mongoose.Schema(
   {
     detectionTime: {
       type: Date,
-      required: [true, "NDRDetection detectionTime required"],
+      required: [true, "NDR Detection detectionTime required"],
     },
     alertID: {
       type: String,
-      required: [true, "NDRDetection alertID required"],
+      required: [true, "NDR Detection alertID required"],
     },
     threatType: {
       type: String,
-      required: [true, "NDRDetection threatType required"],
+      required: [true, "NDR Detection threatType required"],
     },
     severity: {
       type: String,
       enum: ["low", "medium", "high", "critical"],
-      required: [true, "NDRDetection severity required"],
+      required: [true, "NDR Detection severity required"],
     },
-    bu: { type: String, required: [true, "NDRDetection bu required"] },
+    bu: { type: String, required: [true, "NDR Detection bu required"] },
     sourceIP: {
       type: String,
-      required: [true, "NDRDetection sourceIP required"],
+      required: [true, "NDR Detection sourceIP required"],
     },
     destinationIP: {
       type: String,
-      required: [true, "NDRDetection destinationIP required"],
+      required: [true, "NDR Detection destinationIP required"],
     },
     sourcePort: {
       type: String,
-      required: [true, "NDRDetection sourcePort required"],
+      required: [true, "NDR Detection sourcePort required"],
     },
     destinationPort: {
       type: String,
-      required: [true, "NDRDetection destinationPort required"],
+      required: [true, "NDR Detection destinationPort required"],
     },
     description: {
       type: String,
-      required: [true, "NDRDetection description required"],
+      required: [true, "NDR Detection description required"],
     },
     actionTaken: {
       type: String,
-      required: [true, "NDRDetection actionTaken required"],
+      required: [true, "NDR Detection actionTaken required"],
     },
     mitigationSteps: {
       type: String,
-      required: [true, "NDRDetection mitigationSteps required"],
+      required: [true, "NDR Detection mitigationSteps required"],
+    },
+    status: {
+      type: String,
+      enum: ["investigating", "resolved", "unresolved"],
+      default: "unresolved",
+      required: [true, "NDR Detection status required"],
     },
   },
   { timestamps: true }

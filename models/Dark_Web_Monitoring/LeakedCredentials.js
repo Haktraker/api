@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const LeakedCredentialsSchema = new mongoose.Schema(
   {
+    detectionTime: {
+      type: Date,
+      required: [true, "Leaked Credential detectionTime required"],
+    },
     user: {
       type: String,
       required: [true, "Leaked Credentials user required"],
@@ -22,6 +26,12 @@ const LeakedCredentialsSchema = new mongoose.Schema(
     leakDate: {
       type: Date,
       required: [true, "Leaked Credentials leakDate required"],
+    },
+    status: {
+      type: String,
+      enum: ["investigating", "resolved", "unresolved"],
+      default: "unresolved",
+      required: [true, "Leaked Credentials status required"],
     },
   },
   { timestamps: true }

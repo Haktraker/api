@@ -6,6 +6,7 @@ const {
   getAccountTakeover,
   updateAccountTakeover,
   deleteAccountTakeover,
+  uploadScreenshot,
 } = require("../services/accountTakeoverServices");
 const {
   getAccountTakeOverValidator,
@@ -21,9 +22,19 @@ router.route("/:id").get(getAccountTakeOverValidator, getAccountTakeover);
 
 router.use(auth.protect, auth.allowedTo("admin"));
 
-router.route("/").post(createAccountTakeOversValidator, createAccountTakeover);
+router
+  .route("/")
+  .post(
+    uploadScreenshot,
+    createAccountTakeOversValidator,
+    createAccountTakeover
+  );
 router
   .route("/:id")
-  .patch(updateAccountTakeOverValidator, updateAccountTakeover)
+  .patch(
+    uploadScreenshot,
+    updateAccountTakeOverValidator,
+    updateAccountTakeover
+  )
   .delete(deleteAccountTakeOverValidator, deleteAccountTakeover);
 module.exports = router;

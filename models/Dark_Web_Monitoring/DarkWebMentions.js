@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const DarkWebMentionsSchema = new mongoose.Schema(
   {
+    detectionTime: {
+      type: Date,
+      required: [true, "Dark Web Mention detectionTime required"],
+    },
     source: {
       type: String,
       required: [true, "Dark Web Mention source required"],
