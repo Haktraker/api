@@ -10,8 +10,12 @@ const aptFeedsRoute = require("./Threat_Intelligence/aptFeedsRoute");
 const iocsRoute = require("./Threat_Intelligence/iocsRoute");
 const suspiciousIPsRoute = require("./Threat_Intelligence/suspiciousIPsRoute");
 const threatIntelligenceFeedsRoute = require("./Threat_Intelligence/threatIntelligenceFeedsRoute");
+const geoWatchRoute = require("./Threat_Intelligence/geoWatchRoute");
+const threatNewsRoute = require("./Threat_Intelligence/threatNewsRoute");
 // Account Take Over
-const accountTakeoverRoute = require("./accountTakeoverRoute");
+const accountTakeoverRoute = require("./Account_Take_Over/accountTakeoverRoute");
+const impersonationRoute = require("./Account_Take_Over/impersonationRoute");
+const executiveVipProtectionRoute = require("./Account_Take_Over/executiveVipProtectionRoute");
 // Attck Surface
 const attackSurfaceRoute = require("./attackSurfaceRoute");
 // Brand Reputation
@@ -31,10 +35,20 @@ const SecurityBreachIndicatorsRoute = require("./Executive_Dashboard/SecurityBre
 const QuarterlyIncidentRoute = require("./Executive_Dashboard/QuarterlyIncidentRoute");
 const TtdTtrRoute = require("./Executive_Dashboard/TtdTtrRoute");
 const DigitalRiskIntelligenceRoute = require("./Executive_Dashboard/DigitalRiskIntelligenceRoute");
+const CyberSecurityTrendsRoute = require("./Executive_Dashboard/CyberSecurityTrendsRoute");
 
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
 const CyberKillChainRoute = require("./Attack_Scenarios/CyberKillChainRoute");
+const ThirdPartyThreatRoute = require("./Executive_Dashboard/ThirdPartyThreatRoutes");
+const SupplyChainThreatExposureRoute = require("./Executive_Dashboard/SupplyChainThreatExposureRoutes");
+
+const SecurityEventRoute = require("./SecurityEventRoutes");
+const MonthlyVolumeRoute = require("./MonthlyVolumeRoutes");
+const CyberRatingRoute = require("./CyberRatingRoutes");
+const AttackTrendRoute = require("./AttackTrendRoutes");
+const CyberAttackTrendsRoute = require("./CyberAttackTrendsRoutes");
+const CyberResilienceTimeRoute = require("./Executive_Dashboard/CyberResilienceTimeRoutes");
 
 const userRoute = require("./userRoute");
 const authRoute = require("./authRoute");
@@ -63,11 +77,15 @@ const mountRoutes = (app) => {
     "/api/threat-intelligence/threat-intelligence-feeds",
     threatIntelligenceFeedsRoute
   );
+  app.use("/api/threat-intelligence/threat-news", threatNewsRoute);
+  app.use("/api/threat-intelligence/geo-watch", geoWatchRoute);
   // Attack SurfaceRoute
   app.use("/api/attack-surface", attackSurfaceRoute);
 
   // Account Take Over
-  app.use("/api/account-take-over", accountTakeoverRoute);
+  app.use("/api/atos/account-take-over", accountTakeoverRoute);
+  app.use("/api/atos/impersonations", impersonationRoute);
+  app.use("/api/atos/executive-vip-protection", executiveVipProtectionRoute);
 
   // Brand Reputation
   app.use("/api/brand-reputation", brandReputationRoute);
@@ -107,8 +125,28 @@ const mountRoutes = (app) => {
     "/api/executive-dashboard/digital-risk-intelligence",
     DigitalRiskIntelligenceRoute
   );
+  app.use(
+    "/api/executive-dashboard/cyber-security-trends",
+    CyberSecurityTrendsRoute
+  );
   app.use("/api/attack-scenarios/mitre-attacks", MitreAttacksRoute);
   app.use("/api/attack-scenarios/cyber-kill-chain", CyberKillChainRoute);
+
+  app.use("/api/executive-dashboard/third-party-threat", ThirdPartyThreatRoute);
+  app.use(
+    "/api/executive-dashboard/supply-chain-threat-exposure",
+    SupplyChainThreatExposureRoute
+  );
+  app.use(
+    "/api/executive-dashboard/cyber-resilience-time",
+    CyberResilienceTimeRoute
+  );
+
+  app.use("/api/security-event", SecurityEventRoute);
+  app.use("/api/monthly-volume", MonthlyVolumeRoute);
+  app.use("/api/cyber-rating", CyberRatingRoute);
+  app.use("/api/attack-trend", AttackTrendRoute);
+  app.use("/api/cyber-attack-trends", CyberAttackTrendsRoute);
 
   app.use("/api/users", limiter, userRoute);
   app.use("/api/auth", authRoute);

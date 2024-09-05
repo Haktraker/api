@@ -4,7 +4,7 @@ const AccountTakeoverSchema = new mongoose.Schema(
   {
     detectionTime: {
       type: Date,
-      required: [true, "EAccount Take over detectionTime required"],
+      required: [true, "Account Take over detectionTime required"],
     },
     user: { type: String, required: [true, "Account Take over user required"] },
     password: {

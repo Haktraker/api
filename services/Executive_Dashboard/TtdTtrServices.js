@@ -1,4 +1,4 @@
-const TtdTtr = require("../../models/Executive_Dashboard/TtdTtr");
+const TtdTtr = require("../../models/Reports/TtdTtr");
 const factory = require("../handlersFactory");
 
 // @desc      Create Non Compliance Gaps Overview

@@ -30,9 +30,9 @@ const CyberKillChainSchema = new mongoose.Schema({
     type: String,
     required: [true, " Cyber Kill Chain Business Unit is required"],
   },
-  timestamp: {
+  detectionTime: {
     type: Date,
-    required: [true, " Cyber Kill Chain Timestamp is required"],
+    required: [true, " Cyber Kill Chain detectionTime is required"],
   },
   severity: {
     type: String,

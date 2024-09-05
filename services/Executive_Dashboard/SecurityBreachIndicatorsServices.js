@@ -1,4 +1,4 @@
-const SecurityBreachIndicators = require("../../models/Executive_Dashboard/SecurityBreachIndicators");
+const SecurityBreachIndicators = require("../../models/Reports/SecurityBreachIndicators");
 const factory = require("../handlersFactory");
 
 // @desc      Create Non Compliance Gaps Overview
