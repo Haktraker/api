@@ -1,4 +1,4 @@
-const SecurityPostureScore = require("../../models/Executive_Dashboard/SecurityPostureScore");
+const SecurityPostureScore = require("../../models/Reports/SecurityPostureScore");
 const factory = require("../handlersFactory");
 
 // @desc      Create Security Posture Score

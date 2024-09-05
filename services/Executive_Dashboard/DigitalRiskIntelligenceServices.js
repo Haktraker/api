@@ -1,4 +1,4 @@
-const DigitalRiskIntelligence = require("../../models/Executive_Dashboard/DigitalRiskIntelligence");
+const DigitalRiskIntelligence = require("../../models/Reports/DigitalRiskIntelligence");
 const factory = require("../handlersFactory");
 
 // @desc      Create Non Compliance Gaps Overview

@@ -1,4 +1,4 @@
-const NonComplianceGapsOverview = require("../../models/Executive_Dashboard/Non-ComplianceGapsOverview");
+const NonComplianceGapsOverview = require("../../models/Reports/Non-ComplianceGapsOverview");
 const factory = require("../handlersFactory");
 
 // @desc      Create Non Compliance Gaps Overview

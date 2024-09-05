@@ -1,4 +1,4 @@
-const QuarterlyIncident = require("../../models/Executive_Dashboard/QuarterlyIncident");
+const QuarterlyIncident = require("../../models/Reports/QuarterlyIncident");
 const factory = require("../handlersFactory");
 
 // @desc      Create Security Posture Score

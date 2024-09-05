@@ -1,4 +1,4 @@
-const ThreatCompositionOverview = require("../../models/Executive_Dashboard/ThreatCompositionOverview");
+const ThreatCompositionOverview = require("../../models/Reports/ThreatCompositionOverview");
 const factory = require("../handlersFactory");
 
 // @desc      Create Non Compliance Gaps Overview
