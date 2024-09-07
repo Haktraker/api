@@ -6,7 +6,7 @@ const {
   getQuarterlyIncident,
   updateQuarterlyIncident,
   deleteQuarterlyIncident,
-} = require("../../services/Executive_Dashboard/QuarterlyIncidentServices");
+} = require("../../services/Executive_Dashboard/QuarterlyincidentServices");
 
 const router = express.Router();
 
