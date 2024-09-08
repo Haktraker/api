@@ -166,7 +166,7 @@ const mountRoutes = (app) => {
     "/api/executive-dashboard/security-event",
     QuarterlySecurityEventRoute
   );
-  app.use("/api/executive-dashboard/monthly-volume", QuarterlyVolumeRoutes);
+  app.use("/api/executive-dashboard/quarterly-volume", QuarterlyVolumeRoutes);
   app.use("/api/executive-dashboard/cyber-rating", QuarterlyCyberRatingRoute);
   app.use("/api/executive-dashboard/attack-trend", QuarterlyAttackTrendRoute);
   app.use(
@@ -192,7 +192,7 @@ const mountRoutes = (app) => {
     "/api/reports/security-breach-indicators",
     ReportSecurityBreachIndicatorsRoute
   );
-  app.use("/api/reports/Report-incident", ReportIncidentRoute);
+  app.use("/api/reports/monthly-incident", ReportIncidentRoute);
   app.use("/api/reports/ttd-ttr", ReportTtdTtrRoute);
   app.use(
     "/api/reports/digital-risk-intelligence",
