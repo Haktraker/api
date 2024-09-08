@@ -32,7 +32,7 @@ const QuarterlySecurityPostureScoreRoute = require("./Executive_Dashboard/Quarte
 const QuarterlyNonComplianceGapsOverviewRoute = require("./Executive_Dashboard/QuarterlyNonComplianceGapsOverviewRoute");
 const QuarterlyThreatCompositionOverviewRoute = require("./Executive_Dashboard/QuarterlyThreatCompositionOverviewRoute");
 const QuarterlySecurityBreachIndicatorsRoute = require("./Executive_Dashboard/QuarterlySecurityBreachIndicatorsRoute");
-const QuarterlyIncidentRoute = require("./Executive_Dashboard/QuarterlyIncidentRoute");
+// const QuarterlyIncidentRoute = require("./Executive_Dashboard/QuarterlyIncidentRoute");
 const QuarterlyTtdTtrRoute = require("./Executive_Dashboard/QuarterlyTtdTtrRoute");
 const QuarterlyDigitalRiskIntelligenceRoute = require("./Executive_Dashboard/QuarterlyDigitalRiskIntelligenceRoute");
 const QuarterlyCyberSecurityTrendsRoute = require("./Executive_Dashboard/QuarterlyCyberSecurityTrendsRoute");
@@ -137,10 +137,10 @@ const mountRoutes = (app) => {
     "/api/executive-dashboard/security-breach-indicators",
     QuarterlySecurityBreachIndicatorsRoute
   );
-  app.use(
-    "/api/executive-dashboard/quarterly-incident",
-    QuarterlyIncidentRoute
-  );
+  // app.use(
+  //   "/api/executive-dashboard/quarterly-incident",
+  //   QuarterlyIncidentRoute
+  // );
   app.use("/api/executive-dashboard/ttd-ttr", QuarterlyTtdTtrRoute);
   app.use(
     "/api/executive-dashboard/digital-risk-intelligence",
