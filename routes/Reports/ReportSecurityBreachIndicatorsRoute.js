@@ -17,9 +17,11 @@ router.route("/").get(getReportSecurityBreachIndicators);
 
 router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getReportSecurityBreachIndicator);
-router.route("/").post(createReportSecurityBreachIndicators);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateReportSecurityBreachIndicators)
   .delete(deleteReportSecurityBreachIndicators);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createReportSecurityBreachIndicators);
 module.exports = router;

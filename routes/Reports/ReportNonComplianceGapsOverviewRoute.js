@@ -14,11 +14,12 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getReportNonComplianceGapsOverviews);
 
-router.use(auth.allowedTo("admin"));
 router.route("/:id").get(getReportNonComplianceGapsOverview);
-router.route("/").post(createReportNonComplianceGapsOverview);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateReportNonComplianceGapsOverview)
   .delete(deleteReportNonComplianceGapsOverview);
+router.use(auth.allowedTo("admin"));
+router.route("/").post(createReportNonComplianceGapsOverview);
 module.exports = router;

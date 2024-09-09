@@ -19,13 +19,15 @@ const router = express.Router();
 router.route("/").get(getleakedCredentials);
 router.route("/:id").get(getleakedCredentialValidator, getleakedCredential);
 
+router.use(auth.protect, auth.allowedTo("admin", "user"));
+
+router
+  .route("/:id")
+  .patch(updateleakedCredentialValidator, updateleakedCredential)
+  .delete(deleteleakedCredentialValidator, deleteleakedCredential);
 router.use(auth.protect, auth.allowedTo("admin"));
 
 router
   .route("/")
   .post(createleakedCredentialsValidator, createleakedCredentials);
-router
-  .route("/:id")
-  .patch(updateleakedCredentialValidator, updateleakedCredential)
-  .delete(deleteleakedCredentialValidator, deleteleakedCredential);
 module.exports = router;

@@ -19,14 +19,13 @@ const router = express.Router();
 
 router.route("/").get(getAttackSurfaces);
 router.route("/:id").get(getAttackSurfaceValidator, getAttackSurface);
-
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router
-  .route("/")
-  .post(uploadScreenshot, createAttackSurfacesValidator, createAttackSurface);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(uploadScreenshot, updateAttackSurfaceValidator, updateAttackSurface)
   .delete(deleteAttackSurfaceValidator, deleteAttackSurface);
+router.use(auth.protect, auth.allowedTo("admin"));
+router
+  .route("/")
+  .post(uploadScreenshot, createAttackSurfacesValidator, createAttackSurface);
 module.exports = router;

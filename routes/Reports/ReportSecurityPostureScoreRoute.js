@@ -16,12 +16,12 @@ router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 
 router.route("/").get(getReportSecurityPostureScores);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getReportSecurityPostureScore);
-
-router.route("/").post(createReportSecurityPostureScore);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateReportSecurityPostureScore)
   .delete(deleteReportSecurityPostureScore);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createReportSecurityPostureScore);
 module.exports = router;

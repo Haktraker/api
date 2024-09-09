@@ -16,12 +16,13 @@ router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 
 router.route("/").get(getQuarterlyIncidents);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getQuarterlyIncident);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 
-router.route("/").post(createQuarterlyIncident);
 router
   .route("/:id")
   .patch(updateQuarterlyIncident)
   .delete(deleteQuarterlyIncident);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createQuarterlyIncident);
 module.exports = router;

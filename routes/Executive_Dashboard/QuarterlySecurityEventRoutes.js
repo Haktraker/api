@@ -12,12 +12,12 @@ const router = express.Router();
 
 router.route("/").get(getQuarterlySecurityEvents);
 router.route("/:id").get(getQuarterlySecurityEvent);
-
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router.route("/").post(createQuarterlySecurityEvent);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateQuarterlySecurityEvent)
   .delete(deleteQuarterlySecurityEvent);
+router.use(auth.protect, auth.allowedTo("admin"));
+
+router.route("/").post(createQuarterlySecurityEvent);
 module.exports = router;

@@ -15,11 +15,13 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyCyberResilienceTimes);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getQuarterlyCyberResilienceTime);
-router.route("/").post(createQuarterlyCyberResilienceTime);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
+
 router
   .route("/:id")
   .patch(updateQuarterlyCyberResilienceTime)
   .delete(deleteQuarterlyCyberResilienceTime);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createQuarterlyCyberResilienceTime);
 module.exports = router;

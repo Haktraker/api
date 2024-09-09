@@ -15,8 +15,9 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyTtdTtrs);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getQuarterlyTtdTtr);
-router.route("/").post(createQuarterlyTtdTtr);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router.route("/:id").patch(updateQuarterlyTtdTtr).delete(deleteQuarterlyTtdTtr);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createQuarterlyTtdTtr);
 module.exports = router;

@@ -19,13 +19,14 @@ const router = express.Router();
 router.route("/").get(getEDRXDRDetections);
 router.route("/:id").get(getEDRXDRDetectionValidator, getEDRXDRDetection);
 
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 
-router
-  .route("/")
-  .post(createEDRXDRDetectionssValidator, createEDRXDRDetections);
 router
   .route("/:id")
   .patch(updateEDRXDRDetectionValidator, updateEDRXDRDetection)
   .delete(deleteEDRXDRDetectionValidator, deleteEDRXDRDetection);
+router.use(auth.protect, auth.allowedTo("admin"));
+router
+  .route("/")
+  .post(createEDRXDRDetectionssValidator, createEDRXDRDetections);
 module.exports = router;
