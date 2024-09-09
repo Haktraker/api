@@ -19,11 +19,11 @@ const router = express.Router();
 router.route("/").get(getips);
 router.route("/:id").get(getipValidator, getip);
 
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router.route("/").post(createipValidator, createip);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateipValidator, updateip)
   .delete(deleteipValidator, deleteip);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createipValidator, createip);
 module.exports = router;

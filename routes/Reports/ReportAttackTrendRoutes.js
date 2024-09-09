@@ -12,12 +12,11 @@ const router = express.Router();
 
 router.route("/").get(getReportAttackTrends);
 router.route("/:id").get(getReportAttackTrend);
-
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router.route("/").post(createReportAttackTrend);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateReportAttackTrend)
   .delete(deleteReportAttackTrend);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createReportAttackTrend);
 module.exports = router;

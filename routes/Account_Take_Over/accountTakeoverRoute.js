@@ -14,11 +14,12 @@ const router = express.Router();
 router.route("/").get(getAccountTakeovers);
 router.route("/:id").get(getAccountTakeover);
 
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router.route("/").post(uploadScreenshot, createAccountTakeover);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(uploadScreenshot, updateAccountTakeover)
   .delete(deleteAccountTakeover);
+router.use(auth.protect, auth.allowedTo("admin"));
+
+router.route("/").post(uploadScreenshot, createAccountTakeover);
 module.exports = router;

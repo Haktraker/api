@@ -16,12 +16,13 @@ router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 
 router.route("/").get(getQuarterlySecurityPostureScores);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getQuarterlySecurityPostureScore);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 
-router.route("/").post(createQuarterlySecurityPostureScore);
 router
   .route("/:id")
   .patch(updateQuarterlySecurityPostureScore)
   .delete(deleteQuarterlySecurityPostureScore);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createQuarterlySecurityPostureScore);
 module.exports = router;

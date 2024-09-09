@@ -19,11 +19,11 @@ const router = express.Router();
 router.route("/").get(getportals);
 router.route("/:id").get(getportalValidator, getportal);
 
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router.route("/").post(createportalsValidator, createportals);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateportalsValidator, updateportals)
   .delete(deleteportalsValidator, deleteportals);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createportalsValidator, createportals);
 module.exports = router;

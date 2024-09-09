@@ -15,8 +15,9 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getCyberKillChains);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getCyberKillChain);
-router.route("/").post(createCyberKillChain);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router.route("/:id").patch(updateCyberKillChain).delete(deleteCyberKillChain);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createCyberKillChain);
 module.exports = router;

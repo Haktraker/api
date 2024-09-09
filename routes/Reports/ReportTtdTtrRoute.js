@@ -15,8 +15,9 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getReportTtdTtrs);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getReportTtdTtr);
-router.route("/").post(createReportTtdTtr);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router.route("/:id").patch(updateReportTtdTtr).delete(deleteReportTtdTtr);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createReportTtdTtr);
 module.exports = router;

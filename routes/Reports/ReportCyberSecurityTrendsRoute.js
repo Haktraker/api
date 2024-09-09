@@ -15,11 +15,12 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getReportCyberSecurityTrends);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getReportCyberSecurityTrend);
-router.route("/").post(createReportCyberSecurityTrends);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateReportCyberSecurityTrends)
   .delete(deleteReportCyberSecurityTrends);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createReportCyberSecurityTrends);
 module.exports = router;

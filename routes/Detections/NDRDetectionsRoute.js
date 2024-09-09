@@ -19,11 +19,12 @@ const router = express.Router();
 router.route("/").get(getNDRDetections);
 router.route("/:id").get(getNDRDetectionValidator, getNDRDetection);
 
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 
-router.route("/").post(createNDRDetectionssValidator, createNDRDetections);
 router
   .route("/:id")
   .patch(updateNDRDetectionValidator, updateNDRDetection)
   .delete(deleteNDRDetectionValidator, deleteNDRDetection);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createNDRDetectionssValidator, createNDRDetections);
 module.exports = router;

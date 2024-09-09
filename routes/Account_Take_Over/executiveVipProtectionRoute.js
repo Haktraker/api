@@ -14,11 +14,11 @@ const router = express.Router();
 router.route("/").get(getExecutiveVipProtections);
 router.route("/:id").get(getExecutiveVipProtection);
 
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router.route("/").post(uploadScreenshot, createExecutiveVipProtection);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(uploadScreenshot, updateExecutiveVipProtection)
   .delete(deleteExecutiveVipProtection);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(uploadScreenshot, createExecutiveVipProtection);
 module.exports = router;

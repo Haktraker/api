@@ -12,12 +12,11 @@ const router = express.Router();
 
 router.route("/").get(getReportMonthlyVolumes);
 router.route("/:id").get(getReportMonthlyVolume);
-
-router.use(auth.protect, auth.allowedTo("admin"));
-
-router.route("/").post(createReportMonthlyVolume);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateReportMonthlyVolume)
   .delete(deleteReportMonthlyVolume);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createReportMonthlyVolume);
 module.exports = router;

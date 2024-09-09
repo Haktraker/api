@@ -15,11 +15,12 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyThreatCompositionOverviews);
 
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getQuarterlyThreatCompositionOverview);
-router.route("/").post(createQuarterlyThreatCompositionOverview);
+router.use(auth.protect, auth.allowedTo("admin", "user"));
 router
   .route("/:id")
   .patch(updateQuarterlyThreatCompositionOverview)
   .delete(deleteQuarterlyThreatCompositionOverview);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createQuarterlyThreatCompositionOverview);
 module.exports = router;

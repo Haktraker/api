@@ -14,12 +14,11 @@ router.use(auth.protect);
 
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyAttackTrends);
-
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/:id").get(getQuarterlyAttackTrend);
-router.route("/").post(createQuarterlyAttackTrend);
 router
   .route("/:id")
   .patch(updateQuarterlyAttackTrend)
   .delete(deleteQuarterlyAttackTrend);
+router.use(auth.protect, auth.allowedTo("admin"));
+router.route("/").post(createQuarterlyAttackTrend);
 module.exports = router;
