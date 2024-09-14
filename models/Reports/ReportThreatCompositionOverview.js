@@ -15,7 +15,13 @@ const ReportThreatCompositionOverview = new mongoose.Schema(
     },
     threatType: {
       type: String,
-      enum: ["Brute Force Attacks", "Insider Threats", "Malware/other Attacks"],
+      enum: [
+        "ATO",
+        "Insider Threats",
+        "Trojan and Malware",
+        "3rd Party leaks",
+        "Attack Surfaces",
+      ],
       required: [true, "Threat Composition Overview Compliance Type required"],
     },
   },

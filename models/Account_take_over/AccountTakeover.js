@@ -31,6 +31,10 @@ const AccountTakeoverSchema = new mongoose.Schema(
       default: "unresolved",
       required: [true, "Account Take over status required"],
     },
+    year: {
+      type: String,
+      required: [true, "Account Take over year required"],
+    },
   },
   { timestamps: true }
 );

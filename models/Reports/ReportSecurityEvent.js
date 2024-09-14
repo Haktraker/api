@@ -1,22 +1,30 @@
 const mongoose = require("mongoose");
 
 const ReportSecurityEventSchema = new mongoose.Schema({
-  name: { type: String },
-  alertVolume: { type: String },
-  ReportSecurityEvent: { type: String },
-  incident: { type: String },
-  atoDarkWebASM: { type: String },
-  month: { type: String },
-  year: { type: String }, // Add year field
+  bu: [
+    {
+      name: { type: String, required: true }, // Business Unit name (e.g., "CWC", "Alrashed Food", etc.)
+      alertTypes: [
+        {
+          alertType: { type: String, required: true }, // Alert type (e.g., "Alert Volume", "Security Event")
+          score: { type: Number, required: true }, // Score for the alert type
+          alertVolume: { type: Number }, // Alert Volume score
+          securityEvent: { type: Number }, // Security Event score
+          incident: { type: Number }, // Incident score
+          atoDarkWebASM: { type: Number }, // ATO/Dark Web/ASM score
+        },
+      ],
+    },
+  ],
+  month: { type: String, required: true }, // Month of the report
+  year: { type: String, required: true }, // Year of the report
 });
 
+// Ensure unique combination of month and year
 ReportSecurityEventSchema.index(
   {
-    ReportSecurityEvents: 1,
-    alertVolume: 1,
-    incident: 1,
-    atoDarkWebASM: 1,
     month: 1,
+    year: 1,
   },
   { unique: true }
 );
