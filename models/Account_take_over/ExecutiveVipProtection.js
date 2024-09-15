@@ -40,10 +40,6 @@ const ExecutiveVipProtection = new mongoose.Schema(
       default: "unresolved",
       required: [true, "Executive Vip Protection status required"],
     },
-    year: {
-      type: String,
-      required: [true, "Executive Vip Protection year required"],
-    }, // Add year field
   },
   { timestamps: true }
 );

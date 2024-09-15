@@ -31,10 +31,6 @@ const Impersonation = new mongoose.Schema(
       default: "unresolved",
       required: [true, "Impersonation status required"],
     },
-    year: {
-      type: String,
-      required: [true, "Impersonation year required"],
-    },
   },
   { timestamps: true }
 );

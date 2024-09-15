@@ -20,6 +20,5 @@ router
   .patch(uploadScreenshot, updateAccountTakeover)
   .delete(deleteAccountTakeover);
 router.use(auth.protect, auth.allowedTo("admin"));
-
 router.route("/").post(uploadScreenshot, createAccountTakeover);
 module.exports = router;
