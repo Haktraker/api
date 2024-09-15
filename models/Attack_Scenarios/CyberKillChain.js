@@ -32,7 +32,6 @@ const CyberKillChainSchema = new mongoose.Schema({
   },
   detectionTime: {
     type: Date,
-    required: [true, " Cyber Kill Chain detectionTime is required"],
   },
   severity: {
     type: String,
