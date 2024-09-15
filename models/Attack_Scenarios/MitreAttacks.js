@@ -36,7 +36,6 @@ const MitreAttacksSchema = new mongoose.Schema({
   },
   detectionTime: {
     type: Date,
-    required: [true, "Mitre Attacks detectionTime is required"],
   },
   severity: {
     type: String,
