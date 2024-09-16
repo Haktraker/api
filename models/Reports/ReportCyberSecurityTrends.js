@@ -20,7 +20,7 @@ const ReportCyberSecurityTrends = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportCyberSecurityTrends.index({ indicator: 1, score: 1 }, { unique: true });
+ReportCyberSecurityTrends.index({ indicator: 1, month: 1 }, { unique: true });
 
 module.exports = mongoose.model(
   "ReportCyberSecurityTrends",

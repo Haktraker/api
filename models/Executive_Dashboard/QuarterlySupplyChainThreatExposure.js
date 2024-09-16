@@ -22,7 +22,7 @@ const QuarterlySupplyChainThreatExposure = new mongoose.Schema(
 );
 
 QuarterlySupplyChainThreatExposure.index(
-  { chian: 1, severity: 1 },
+  { chian: 1, month: 1 },
   { unique: true }
 );
 

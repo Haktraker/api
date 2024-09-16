@@ -26,7 +26,7 @@ const QuarterlyDigitalRiskIntelligence = new mongoose.Schema(
 );
 
 QuarterlyDigitalRiskIntelligence.index(
-  { indicator: 1, level: 1 },
+  { indicator: 1, month: 1 },
   { unique: true }
 );
 

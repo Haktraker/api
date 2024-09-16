@@ -17,7 +17,7 @@ const QuarterlySecurityPostureScore = new mongoose.Schema(
   { timestamps: true }
 );
 QuarterlySecurityPostureScore.index(
-  { percentage: 1, score: 1 },
+  { percentage: 1, month: 1 },
   { unique: true }
 );
 

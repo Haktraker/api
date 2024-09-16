@@ -12,7 +12,6 @@ const QuarterlyCyberSecurityTrends = new mongoose.Schema(
     },
     summary: {
       type: String,
-      required: [true, "Cyber Security Trends summary required"],
     },
     year: { type: String }, // Add year field
     month: { type: String }, // Add month field
@@ -22,7 +21,7 @@ const QuarterlyCyberSecurityTrends = new mongoose.Schema(
 );
 
 QuarterlyCyberSecurityTrends.index(
-  { indicator: 1, score: 1 },
+  { indicator: 1, month: 1 },
   { unique: true }
 );
 
