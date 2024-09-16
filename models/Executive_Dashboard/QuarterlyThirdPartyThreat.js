@@ -18,10 +18,7 @@ const QuarterlyThirdPartyThreat = new mongoose.Schema(
   { timestamps: true }
 );
 
-QuarterlyThirdPartyThreat.index(
-  { thirdParty: 1, severity: 1 },
-  { unique: true }
-);
+QuarterlyThirdPartyThreat.index({ thirdParty: 1, month: 1 }, { unique: true });
 
 module.exports = mongoose.model(
   "QuarterlyThirdPartyThreat",

@@ -25,7 +25,7 @@ const ReportDigitalRiskIntelligence = new mongoose.Schema(
 );
 
 ReportDigitalRiskIntelligence.index(
-  { indicator: 1, level: 1 },
+  { indicator: 1, month: 1 },
   { unique: true }
 );
 

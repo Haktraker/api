@@ -17,7 +17,7 @@ const ReportThirdPartyThreat = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportThirdPartyThreat.index({ thirdParty: 1, severity: 1 }, { unique: true });
+ReportThirdPartyThreat.index({ thirdParty: 1, month: 1 }, { unique: true });
 
 module.exports = mongoose.model(
   "ReportThirdPartyThreat",

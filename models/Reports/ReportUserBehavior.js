@@ -6,7 +6,7 @@ const ReportUserBehavior = new mongoose.Schema({
       name: { type: String, required: true }, // Business Unit name (e.g., "CWC", "Alrashed Food", etc.)
       alertTypes: [
         {
-          alertType: { type: String, required: true }, // Alert type 
+          alertType: { type: String, required: true }, // Alert type
           score: { type: Number, required: true }, // Score for the alert type
           repeatedLoginFailuers: { type: Number }, //repeated Login Failuers score
           accessingSensitiveData: { type: Number }, // accessing Sensitive Data score
