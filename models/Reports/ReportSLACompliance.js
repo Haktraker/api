@@ -25,9 +25,9 @@ const SlaComplianceSchema = new mongoose.Schema({
     type: Number,
     required: [true, "SLA Compliance alert Triage Efficiency required"],
   },
-  incidentsResolved: {
+  slaCompliance: {
     type: Number,
-    required: [true, "SLA Compliance incidents Resolved required"],
+    required: [true, "SLA Compliance slaCompliance required"],
   },
   customerSatisfaction: {
     type: Number,
