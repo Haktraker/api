@@ -29,6 +29,7 @@ QuarterlyDigitalRiskIntelligence.index(
   { indicator: 1, month: 1 },
   { unique: true }
 );
+// QuarterlyDigitalRiskIntelligence
 
 module.exports = mongoose.model(
   "QuarterlyDigitalRiskIntelligence",
