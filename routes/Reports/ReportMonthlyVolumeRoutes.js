@@ -9,6 +9,7 @@ const {
 } = require("../../services/Reports/ReportMonthlyVolumeServices");
 
 const router = express.Router();
+router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 
 router.route("/").get(getReportMonthlyVolumes);
 router.route("/:id").get(getReportMonthlyVolume);
