@@ -9,6 +9,7 @@ const {
 } = require("../../services/Reports/ReportSecurityEventServices");
 
 const router = express.Router();
+router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 
 router.route("/").get(getReportSecurityEvents);
 router.route("/:id").get(getReportSecurityEvent);
