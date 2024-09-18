@@ -66,6 +66,7 @@ const ReportsSlaComplianceRoutes = require("./Reports/ReportsSlaComplianceRoutes
 const ReportCyberResilienceTimeRoute = require("./Reports/ReportCyberResilienceTimeRoutes");
 const ReportThirdPartyThreatRoute = require("./Reports/ReportThirdPartyThreatRoutes");
 const ReportSupplyChainThreatExposureRoute = require("./Reports/ReportSupplyChainThreatExposureRoutes");
+const ReportAttackTrendsAcrosstheLockheedCyberKillChainRoutes = require("./Reports/ReportAttackTrendsAcrosstheLockheedCyberKillChainRoutes");
 /*************************** Report *************** */
 
 // Attack Secnarios
@@ -217,6 +218,10 @@ const mountRoutes = (app) => {
   app.use("/api/reports/cyber-attack-trends", ReportCyberAttackTrendsRoute);
   app.use("/api/reports/user-behavior", ReportUserBehaviorRoutes);
   app.use("/api/reports/sla-compliance", ReportsSlaComplianceRoutes);
+  app.use(
+    "/api/reports/attack-trends-across-lock-head",
+    ReportAttackTrendsAcrosstheLockheedCyberKillChainRoutes
+  );
   /*************************** Reports *************** */
 
   app.use("/api/users", userRoute);
