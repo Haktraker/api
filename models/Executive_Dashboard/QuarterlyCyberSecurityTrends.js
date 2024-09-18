@@ -6,23 +6,19 @@ const QuarterlyCyberSecurityTrends = new mongoose.Schema(
       type: String,
       required: [true, "Cyber Security Trends score required"],
     },
-    indicator: {
+    trigger: {
       type: String,
-      required: [true, "Cyber Security Trends indicator required"],
+      required: [true, "Cyber Security Trends trigger required"],
     },
-    summary: {
+    issue: {
       type: String,
+      required: [true, "Cyber Security Trends issue required"],
     },
+    solutions: [String],
     year: { type: String }, // Add year field
     month: { type: String }, // Add month field
-    quarter: { type: Number, required: [true, "quarter required"] },
   },
   { timestamps: true }
-);
-
-QuarterlyCyberSecurityTrends.index(
-  { indicator: 1, month: 1 },
-  { unique: true }
 );
 
 module.exports = mongoose.model(
