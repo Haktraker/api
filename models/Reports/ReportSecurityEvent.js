@@ -20,14 +20,14 @@ const ReportSecurityEventSchema = new mongoose.Schema({
   year: { type: String, required: true }, // Year of the report
 });
 
-// Ensure unique combination of month and year
-ReportSecurityEventSchema.index(
-  {
-    month: 1,
-    year: 1,
-  },
-  { unique: true }
-);
+// // Ensure unique combination of month and year
+// ReportSecurityEventSchema.index(
+//   {
+//     month: 1,
+//     year: 1,
+//   },
+//   { unique: true }
+// );
 
 module.exports = mongoose.model(
   "ReportSecurityEvent",
