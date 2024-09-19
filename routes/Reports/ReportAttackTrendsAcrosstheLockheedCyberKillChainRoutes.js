@@ -9,6 +9,8 @@ const {
 } = require("../../services/Reports/ReportAttackTrendsAcrosstheLockheedCyberKillChainServices");
 
 const router = express.Router();
+router.use(auth.protect);
+
 router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 
 router.route("/").get(getReportAttackTrendsAcrosstheLockheedCyberKillChains);

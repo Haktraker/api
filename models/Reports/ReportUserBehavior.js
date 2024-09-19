@@ -21,12 +21,14 @@ const ReportUserBehavior = new mongoose.Schema({
 });
 
 // Ensure unique combination of month and year
-ReportUserBehavior.index(
-  {
-    month: 1,
-    year: 1,
-  },
-  { unique: true }
-);
+// ReportUserBehavior.index(
+//   {
+//     month: 1,
+//     year: 1,
+//   },
+//   { unique: true }
+// );
+
+
 
 module.exports = mongoose.model("ReportUserBehavior", ReportUserBehavior);

@@ -20,7 +20,10 @@ const ReportSupplyChainThreatExposure = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportSupplyChainThreatExposure.index({ chian: 1, month: 1 }, { unique: true });
+ReportSupplyChainThreatExposure.index(
+  { chain: 1, month: 1, year: 1 },
+  { unique: true }
+);
 
 module.exports = mongoose.model(
   "ReportSupplyChainThreatExposure",

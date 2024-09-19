@@ -47,4 +47,12 @@ const SlaComplianceSchema = new mongoose.Schema({
   },
 });
 
+SlaComplianceSchema.index(
+  {
+    month: 1,
+    year: 1,
+  },
+  { unique: true }
+);
+
 module.exports = mongoose.model("SlaCompliance", SlaComplianceSchema);
