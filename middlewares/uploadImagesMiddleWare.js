@@ -10,6 +10,7 @@ let options = (folderName) => {
       "image/jpeg",
       "image/png",
       "image/gif",
+      "image/webp",
       "text/plain",
       "application/pdf",
       "application/zip",

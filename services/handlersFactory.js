@@ -14,13 +14,17 @@ cloudinary.config({
 exports.cloudinaryImageUploadMethod = async (file) => {
   return new Promise((resolve) => {
     cloudinary.v2.uploader
-      .upload(file, { resource_type: "auto" }, (err, res) => {
-        if (err) return err.message;
+      .upload(
+        file,
+        { resource_type: "raw" },
+        (err, res) => {
+          if (err) return err.message;
 
-        resolve({
-          res: res.secure_url,
-        });
-      })
+          resolve({
+            res: res.secure_url,
+          });
+        }
+      )
       .catch((error) => console.warn(error));
   });
 };
