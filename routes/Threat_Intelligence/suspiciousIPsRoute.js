@@ -15,11 +15,12 @@ const {
 } = require("../../utils/validators/Threat_Intelligence/suspiciousIPsValidator");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getSuspiciousIPs);
 router.route("/:id").get(getSuspiciousIPValidator, getSuspiciousIP);
 
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.allowedTo("admin"));
 
 router.route("/").post(createSuspiciousIPsValidator, createSuspiciousIPs);
 router

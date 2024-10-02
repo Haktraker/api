@@ -15,15 +15,16 @@ const {
 } = require("../../utils/validators/assets/portalsValidator");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getportals);
 router.route("/:id").get(getportalValidator, getportal);
-router.use(auth.protect, auth.allowedTo("admin", "user", "assetsAdmin"));
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 
 router
   .route("/:id")
   .patch(updateportalsValidator, updateportals)
   .delete(deleteportalsValidator, deleteportals);
-router.use(auth.protect, auth.allowedTo("admin", "assetsAdmin"));
+router.use(auth.allowedTo("admin", "assetsAdmin"));
 router.route("/").post(createportalsValidator, createportals);
 module.exports = router;

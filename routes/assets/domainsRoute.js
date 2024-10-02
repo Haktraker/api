@@ -15,15 +15,16 @@ const {
 } = require("../../utils/validators/assets/domainValidator");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getDomains);
 router.route("/:id").get(getDomainValidator, getDomain);
 
-router.use(auth.protect, auth.allowedTo("admin", "user", "assetsAdmin"));
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateDomainValidator, updateDomain)
   .delete(deleteDomainValidator, deleteDomain);
-router.use(auth.protect, auth.allowedTo("admin", "assetsAdmin"));
+router.use(auth.allowedTo("admin", "assetsAdmin"));
 router.route("/").post(createDomainValidator, createDomain);
 module.exports = router;

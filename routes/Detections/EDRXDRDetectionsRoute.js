@@ -15,17 +15,16 @@ const {
 } = require("../../utils/validators/Detections/EDRXDRDetectionsValidators");
 
 const router = express.Router();
-
+router.use(auth.protect);
 router.route("/").get(getEDRXDRDetections);
 router.route("/:id").get(getEDRXDRDetectionValidator, getEDRXDRDetection);
 
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+router.use(auth.allowedTo("admin"));
 
 router
   .route("/:id")
   .patch(updateEDRXDRDetectionValidator, updateEDRXDRDetection)
   .delete(deleteEDRXDRDetectionValidator, deleteEDRXDRDetection);
-router.use(auth.protect, auth.allowedTo("admin"));
 router
   .route("/")
   .post(createEDRXDRDetectionssValidator, createEDRXDRDetections);

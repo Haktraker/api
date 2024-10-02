@@ -11,15 +11,13 @@ const {
 const router = express.Router();
 router.use(auth.protect);
 
-router.use(auth.allowedTo("admin", "user", "soc", "executive"));
-
 router.route("/").get(getReportCyberRatings);
 router.route("/:id").get(getReportCyberRating);
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+router.use(auth.allowedTo("admin"));
+
 router
   .route("/:id")
   .patch(updateReportCyberRating)
   .delete(deleteReportCyberRating);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createReportCyberRating);
 module.exports = router;

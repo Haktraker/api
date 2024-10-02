@@ -15,15 +15,16 @@ const {
 } = require("../../utils/validators/assets/ipValidator");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getips);
 router.route("/:id").get(getipValidator, getip);
 
-router.use(auth.protect, auth.allowedTo("admin", "user", "assetsAdmin"));
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateipValidator, updateip)
   .delete(deleteipValidator, deleteip);
-router.use(auth.protect, auth.allowedTo("admin", "assetsAdmin"));
+router.use(auth.allowedTo("admin", "assetsAdmin"));
 router.route("/").post(createipValidator, createip);
 module.exports = router;

@@ -12,10 +12,9 @@ const router = express.Router();
 
 router.use(auth.protect);
 
-router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getCyberKillChains);
-
 router.route("/:id").get(getCyberKillChain);
+
 router.use(auth.protect, auth.allowedTo("admin", "user"));
 router.route("/:id").patch(updateCyberKillChain).delete(deleteCyberKillChain);
 router.use(auth.protect, auth.allowedTo("admin"));

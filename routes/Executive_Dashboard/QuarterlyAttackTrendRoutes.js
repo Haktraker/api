@@ -11,14 +11,14 @@ const {
 const router = express.Router();
 
 router.use(auth.protect);
-
-router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyAttackTrends);
 router.route("/:id").get(getQuarterlyAttackTrend);
+
+router.use(auth.allowedTo("admin"));
+
 router
   .route("/:id")
   .patch(updateQuarterlyAttackTrend)
   .delete(deleteQuarterlyAttackTrend);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createQuarterlyAttackTrend);
 module.exports = router;

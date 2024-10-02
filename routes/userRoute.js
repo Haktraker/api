@@ -34,7 +34,7 @@ router.delete("/dactivate-profile", deActivateProfile);
 // router.patch('/ractivate-profile', reActivateProfile);
 
 // Admin routes
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.allowedTo("admin"));
 router.route("/").post(createUser);
 router
   .route("/change-password/:id")

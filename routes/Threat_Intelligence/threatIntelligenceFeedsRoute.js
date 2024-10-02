@@ -15,13 +15,18 @@ const {
 } = require("../../utils/validators/Threat_Intelligence/threatIntelligenceFeedsValidator");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getThreatIntelligenceFeeds);
-router.route("/:id").get(getThreatIntelligenceFeedValidator, getThreatIntelligenceFeed);
+router
+  .route("/:id")
+  .get(getThreatIntelligenceFeedValidator, getThreatIntelligenceFeed);
 
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.allowedTo("admin"));
 
-router.route("/").post(createThreatIntelligenceFeedsValidator, createThreatIntelligenceFeeds);
+router
+  .route("/")
+  .post(createThreatIntelligenceFeedsValidator, createThreatIntelligenceFeeds);
 router
   .route("/:id")
   .patch(updateThreatIntelligenceFeedValidator, updateThreatIntelligenceFeed)

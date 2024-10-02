@@ -12,16 +12,14 @@ const router = express.Router();
 
 router.use(auth.protect);
 
-router.use(auth.allowedTo("admin", "user", "soc", "executive"));
-
 router.route("/").get(getReportMonthlyIncidents);
-
 router.route("/:id").get(getReportMonthlyIncident);
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+
+router.use(auth.allowedTo("admin"));
+
 router
   .route("/:id")
   .patch(updateReportMonthlyIncident)
   .delete(deleteReportMonthlyIncident);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createReportMonthlyIncident);
 module.exports = router;
