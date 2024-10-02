@@ -68,6 +68,9 @@ const ReportThirdPartyThreatRoute = require("./Reports/ReportThirdPartyThreatRou
 const ReportSupplyChainThreatExposureRoute = require("./Reports/ReportSupplyChainThreatExposureRoutes");
 const ReportAttackTrendsAcrosstheLockheedCyberKillChainRoutes = require("./Reports/ReportAttackTrendsAcrosstheLockheedCyberKillChainRoutes");
 /*************************** Report *************** */
+/*************************** Admin *************** */
+const createUserRoute = require("./userRoute");
+/*************************** Admin *************** */
 
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
@@ -80,6 +83,8 @@ const { limiter } = require("../middlewares/rateLimiterMiddleware");
 /**************************************mount Routes****************************************** */
 
 const mountRoutes = (app) => {
+  // admin
+  app.use("/api/create-user", createUserRoute);
   // assets
   app.use("/api/assets/ips", ipRoute);
   app.use("/api/assets/domains", domainRoute);
