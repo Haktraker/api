@@ -11,7 +11,7 @@ const QuarterlyVolumeSchema = new mongoose.Schema({
   attackSurface: { type: String },
   ato: { type: String },
   thirdPartyLeaks: { type: String },
-  quarter: { type: Number, required: [true, "quarter required"] },
+  quarter: { type: Number },
 });
 
 module.exports = mongoose.model("QuarterlyVolume", QuarterlyVolumeSchema);

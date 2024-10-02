@@ -4,16 +4,14 @@ const Quarterlyincident = new mongoose.Schema(
   {
     month: {
       type: String,
-      required: [true, "Quarterly Incident month required"],
       trim: true,
       unique: true, // Ensure the month field is unique
     },
     score: {
       type: String,
-      required: [true, "Quarterly Incident Score required"],
     },
     year: { type: String }, // Add year field
-    quarter: { type: Number, required: [true, "quarter required"] },
+    quarter: { type: Number },
   },
   { timestamps: true }
 );

@@ -4,32 +4,28 @@ const AccountTakeoverSchema = new mongoose.Schema(
   {
     detectionTime: {
       type: Date,
-      required: [true, "Account Take over detectionTime required"],
     },
-    user: { type: String, required: [true, "Account Take over user required"] },
+    user: {
+      type: String,
+    },
     password: {
       type: String,
-      required: [true, "Account Take over password required"],
     },
-    url: { type: String, required: [true, "Account Take over url required"] },
-    bu: { type: String, required: [true, "Account Take over bu required"] },
+    url: { type: String },
+    bu: { type: String },
     source: {
       type: String,
-      required: [true, "Account Take over source required"],
     },
     mitigationSteps: {
       type: String,
-      required: [true, "Account Take over mitigationSteps required"],
     },
     screenshot: {
       type: String,
-      required: [true, "Account Take over screenshot required"],
     },
     status: {
       type: String,
       enum: ["investigating", "resolved", "unresolved"],
       default: "unresolved",
-      required: [true, "Account Take over status required"],
     },
   },
   { timestamps: true }

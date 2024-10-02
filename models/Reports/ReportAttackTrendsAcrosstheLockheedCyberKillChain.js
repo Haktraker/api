@@ -9,8 +9,8 @@ const ReportAttackTrendsAcrosstheLockheedCyberKillChain = new mongoose.Schema(
     Installation: { type: Number },
     CommandandControl: { type: Number },
     ActionsOnObjectives: { type: Number },
-    month: { type: String, required: true }, // Month of the report
-    year: { type: String, required: true }, // Year of the report
+    month: { type: String }, // Month of the report
+    year: { type: String }, // Year of the report
   },
   { timestamps: true }
 );

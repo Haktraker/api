@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 
 const SuspiciousIPsSchema = new mongoose.Schema(
   {
-    value: { type: String, required: [true, "IP value required"] },
-    source: { type: String, required: [true, "IP source required"] },
+    value: { type: String },
+    source: { type: String },
     description: {
       type: String,
-      required: [true, "SuspiciousIP description required"],
     },
   },
   { timestamps: true }

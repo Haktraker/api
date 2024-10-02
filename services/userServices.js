@@ -145,9 +145,9 @@ exports.deActivateProfile = asyncHandler(async (req, res, next) => {
   res.status(204).send();
 });
 
-// // @desc      Reactivate deactivated user
-// // @route     PATCH /api/users/reactivate-profile
-// // @access    Public/protect
+// @desc      Reactivate deactivated user
+ // @route     PATCH /api/users/reactivate-profile
+ // @access    Public/protect
 // exports.reActivateProfile = asyncHandler(async (req, res, next) => {
 //   await User.findById(req.user._id, {
 //     active: true,

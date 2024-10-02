@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 
 const DomainsSchema = new mongoose.Schema(
   {
-    value: { type: String, required: [true, "Domain value required"] },
-    location: { type: String, required: [true, "Domain location required"] },
+    value: { type: String },
+    location: { type: String },
     description: {
       type: String,
-      required: [true, "Domain description required"],
     },
   },
   { timestamps: true }

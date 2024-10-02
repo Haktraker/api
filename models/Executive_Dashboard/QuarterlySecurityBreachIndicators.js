@@ -4,15 +4,13 @@ const QuarterlySecurityBreachIndicators = new mongoose.Schema(
   {
     month: {
       type: String,
-      required: [true, "Security Breach Indicators month required"],
       trim: true,
     },
     year: { type: String }, // Add year field
-    quarter: { type: Number, required: [true, "quarter required"] },
+    quarter: { type: Number },
 
     score: {
       type: String,
-      required: [true, "Security Breach Indicators Score required"],
     },
     indicator: {
       type: String,
@@ -22,7 +20,6 @@ const QuarterlySecurityBreachIndicators = new mongoose.Schema(
         "3rd Party Leaked Credentials",
         "Brand Reputation",
       ],
-      required: [true, "Security Breach Indicators indicator required"],
     },
   },
   { timestamps: true }

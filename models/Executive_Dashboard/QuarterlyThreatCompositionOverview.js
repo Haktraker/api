@@ -4,14 +4,12 @@ const QuarterlyThreatCompositionOverview = new mongoose.Schema(
   {
     month: {
       type: String,
-      required: [true, "Threat Composition Overview month required"],
       trim: true,
     },
     year: { type: String }, // Add year field
 
     score: {
       type: String,
-      required: [true, "Threat Composition Overview Score required"],
     },
     threatType: {
       type: String,
@@ -22,9 +20,8 @@ const QuarterlyThreatCompositionOverview = new mongoose.Schema(
         "3rd Party leaks",
         "Attack Surfaces",
       ],
-      required: [true, "Threat Composition Overview Compliance Type required"],
     },
-    quarter: { type: Number, required: [true, "quarter required"] },
+    quarter: { type: Number },
   },
   { timestamps: true }
 );
