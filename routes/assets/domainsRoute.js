@@ -19,11 +19,11 @@ const router = express.Router();
 router.route("/").get(getDomains);
 router.route("/:id").get(getDomainValidator, getDomain);
 
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+router.use(auth.protect, auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateDomainValidator, updateDomain)
   .delete(deleteDomainValidator, deleteDomain);
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.protect, auth.allowedTo("admin", "assetsAdmin"));
 router.route("/").post(createDomainValidator, createDomain);
 module.exports = router;
