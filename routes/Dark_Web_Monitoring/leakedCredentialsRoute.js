@@ -8,24 +8,20 @@ const {
   deleteleakedCredential,
 } = require("../../services/Dark_Web_Monitoring/LeakedCredentialsServices");
 const {
-  getleakedCredentialValidator,
-  createleakedCredentialsValidator,
-  updateleakedCredentialValidator,
   deleteleakedCredentialValidator,
 } = require("../../utils/validators/Dark_Web_Monitoring/LeakedCredentialsValidator");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getleakedCredentials);
 router.route("/:id").get(getleakedCredential);
 
-router.use(auth.protect, auth.allowedTo("admin", "user"));
-
+router.use(auth.allowedTo("admin"));
 router
   .route("/:id")
   .patch(updateleakedCredential)
   .delete(deleteleakedCredentialValidator, deleteleakedCredential);
-router.use(auth.protect, auth.allowedTo("admin"));
 
 router.route("/").post(createleakedCredentials);
 module.exports = router;

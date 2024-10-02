@@ -15,11 +15,12 @@ const {
 } = require("../../utils/validators/Threat_Intelligence/iocsValidator");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getIocs);
 router.route("/:id").get(getIocValidator, getIoc);
 
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.allowedTo("admin"));
 
 router.route("/").post(createIocsValidator, createIocs);
 router

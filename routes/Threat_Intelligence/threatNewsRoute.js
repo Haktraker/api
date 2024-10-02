@@ -9,11 +9,10 @@ const {
 } = require("../../services/Threat_Intelligence/threatNewsServices");
 
 const router = express.Router();
-
+router.use(auth.protect);
 router.route("/").get(getThreatNews);
 router.route("/:id").get(getThreatOneNews);
-
-router.use(auth.protect, auth.allowedTo("admin"));
+router.use(auth.allowedTo("admin"));
 
 router.route("/").post(createThreatNews);
 router.route("/:id").patch(updateThreatNews).delete(deleteThreatNews);

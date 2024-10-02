@@ -15,16 +15,16 @@ const {
 } = require("../../utils/validators/Detections/NDRDetectionsValidators");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getNDRDetections);
 router.route("/:id").get(getNDRDetectionValidator, getNDRDetection);
 
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+router.use(auth.allowedTo("admin"));
 
 router
   .route("/:id")
   .patch(updateNDRDetectionValidator, updateNDRDetection)
   .delete(deleteNDRDetectionValidator, deleteNDRDetection);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createNDRDetectionssValidator, createNDRDetections);
 module.exports = router;

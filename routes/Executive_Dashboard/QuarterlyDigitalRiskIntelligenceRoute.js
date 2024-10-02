@@ -11,17 +11,13 @@ const {
 const router = express.Router();
 
 router.use(auth.protect);
-
-router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyDigitalRiskIntelligences);
-
 router.route("/:id").get(getQuarterlyDigitalRiskIntelligence);
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+router.use(auth.allowedTo("admin"));
 
 router
   .route("/:id")
   .patch(updateQuarterlyDigitalRiskIntelligence)
   .delete(deleteQuarterlyDigitalRiskIntelligence);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createQuarterlyDigitalRiskIntelligence);
 module.exports = router;

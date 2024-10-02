@@ -9,14 +9,14 @@ const {
 } = require("../services/CyberAttackTrendsServices");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getCyberAttackTrends);
 router.route("/:id").get(getCyberAttackTrend);
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+router.use(auth.allowedTo("admin"));
 router
   .route("/:id")
   .patch(updateCyberAttackTrends)
   .delete(deleteCyberAttackTrends);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createCyberAttackTrends);
 module.exports = router;

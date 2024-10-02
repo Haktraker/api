@@ -16,11 +16,12 @@ const {
 
 const router = express.Router();
 
+router.use(auth.protect);
+
 router.route("/").get(getAPTFeeds);
 router.route("/:id").get(getAPTFeedValidator, getAPTFeed);
 
-router.use(auth.protect, auth.allowedTo("admin"));
-
+router.use(auth.allowedTo("admin"));
 router.route("/").post(createAPTFeedsValidator, createAPTFeeds);
 router
   .route("/:id")

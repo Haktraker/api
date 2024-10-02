@@ -12,16 +12,14 @@ const router = express.Router();
 
 router.use(auth.protect);
 
-router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyCyberResilienceTimes);
-
 router.route("/:id").get(getQuarterlyCyberResilienceTime);
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+
+router.use(auth.allowedTo("admin"));
 
 router
   .route("/:id")
   .patch(updateQuarterlyCyberResilienceTime)
   .delete(deleteQuarterlyCyberResilienceTime);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createQuarterlyCyberResilienceTime);
 module.exports = router;

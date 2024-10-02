@@ -15,14 +15,14 @@ const {
 } = require("../utils/validators/brandReputationValidators");
 
 const router = express.Router();
+router.use(auth.protect);
 
 router.route("/").get(getBrandsReputation);
 router.route("/:id").get(getBrandReputationValidator, getBrandReputation);
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+router.use(auth.allowedTo("admin"));
 router
   .route("/:id")
   .patch(updateBrandReputationValidator, updateBrandReputation)
   .delete(deleteBrandReputationValidator, deleteBrandReputation);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createBrandReputationsValidator, createBrandReputation);
 module.exports = router;

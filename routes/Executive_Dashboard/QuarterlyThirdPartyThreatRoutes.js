@@ -12,15 +12,13 @@ const router = express.Router();
 
 router.use(auth.protect);
 
-router.use(auth.allowedTo("admin", "user", "soc", "executive"));
 router.route("/").get(getQuarterlyThirdPartyThreats);
-
 router.route("/:id").get(getQuarterlyThirdPartyThreat);
-router.use(auth.protect, auth.allowedTo("admin", "user"));
+
+router.use(auth.allowedTo("admin"));
 router
   .route("/:id")
   .patch(updateQuarterlyThirdPartyThreat)
   .delete(deleteQuarterlyThirdPartyThreat);
-router.use(auth.protect, auth.allowedTo("admin"));
 router.route("/").post(createQuarterlyThirdPartyThreat);
 module.exports = router;
