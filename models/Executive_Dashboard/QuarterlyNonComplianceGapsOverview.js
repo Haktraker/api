@@ -4,19 +4,16 @@ const QuarterlyNonComplianceGapsOverview = new mongoose.Schema(
   {
     month: {
       type: String,
-      required: [true, "Non Compliance Gaps Overview month required"],
     },
     compliance: {
       type: String,
-      enum: ["MITRE ATT&CK", "ISO 27001", "NIST CSF", "PDPL", "SAMA"],
-      required: [true, "Compliance Type required"],
+      enum: ["MITRE ATT&CK", "ISO 27001", "NIST CSF", "PDPL", "CIS"],
     },
     score: {
       type: String,
-      required: [true, "Non Compliance Gaps Overview Score required"],
     },
     year: { type: String }, // Add year field
-    quarter: { type: Number, required: [true, "quarter required"] },
+    quarter: { type: Number },
   },
   { timestamps: true }
 );

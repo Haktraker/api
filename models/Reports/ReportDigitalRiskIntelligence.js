@@ -5,7 +5,6 @@ const ReportDigitalRiskIntelligence = new mongoose.Schema(
     level: {
       type: String,
       enum: ["no risk", "medium", "high", "critical"],
-      required: [true, "Digital Risk Intelligence level required"],
       default: "no risk",
     },
     indicator: {
@@ -16,7 +15,6 @@ const ReportDigitalRiskIntelligence = new mongoose.Schema(
         "impersonations",
         "social media",
       ],
-      required: [true, "Digital Risk Intelligence indicator required"],
     },
     year: { type: String }, // Add year field
     month: { type: String }, // Add month field

@@ -16,8 +16,8 @@ exports.signup = asyncHandler(async (req, res, next) => {
   const user = await User.create({
     name: req.body.name,
     email: req.body.email,
-    phone: req.body.phone,
     password: req.body.password,
+    confirmPassword: req.body.confirmPassword,
   });
   // 2- Generate Web Token
   const token = createToken(user);
@@ -126,13 +126,13 @@ exports.fogotPassword = asyncHandler(async (req, res, next) => {
   user.passwordResetVerified = false;
   await user.save();
   // 3- send the reset code to email
-  const message = `Hi ${user.name},\n We received your reset password request for Mareez-sa.com\n
+  const message = `Hi ${user.name},\n We received your reset password request for https://haktraksecops.com \n
   ${resetCode}\nPlease Note that Your reset Code valid for 10 minutes.
   `;
   try {
     await sendEmail({
       email: user.email,
-      subject: `your password reset code (valid for 10 minutes) `,
+      subject: `Haktraksecops reset passowrd Ccode`,
       message,
     });
   } catch (error) {
@@ -194,4 +194,31 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
   // 3- Generate New Token
   const token = createToken(user._id);
   res.status(200).json({ success: "Password Changed Successfully", token });
+});
+
+// @desc       Change Password
+// @route     POST /api/auth/change-password
+// @access    Private
+exports.changePassword = asyncHandler(async (req, res, next) => {
+  const { currentPassword, newPassword } = req.body;
+
+  // 1- Get User from Request (assuming user info is in req.user after authentication)
+  const user = await User.findById(req.user._id); // req.user.id should come from your auth middleware
+  if (!user) {
+    return next(new ApiError("User not found", 404));
+  }
+
+  // 2- Check if the current password is correct
+  const isMatch = await bcrypt.compare(currentPassword, user.password);
+  if (!isMatch) {
+    return next(new ApiError("Current password is incorrect", 401));
+  }
+
+  // 3- Update the password
+  user.password = newPassword; // This will trigger the pre-save hook to hash the password
+  await user.save();
+
+  // 4- Generate New Token (optional)
+  const token = createToken(user._id); // Generate a new token if you want to send it back
+  res.status(200).json({ data: user, token });
 });

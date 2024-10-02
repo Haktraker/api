@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const ReportUserBehavior = new mongoose.Schema({
   bu: [
     {
-      name: { type: String, required: true }, // Business Unit name (e.g., "CWC", "Alrashed Food", etc.)
+      name: { type: String }, // Business Unit name (e.g., "CWC", "Alrashed Food", etc.)
       alertTypes: [
         {
-          alertType: { type: String, required: true }, // Alert type
-          score: { type: Number, required: true }, // Score for the alert type
+          alertType: { type: String }, // Alert type
+          score: { type: Number }, // Score for the alert type
           repeatedLoginFailuers: { type: Number }, //repeated Login Failuers score
           accessingSensitiveData: { type: Number }, // accessing Sensitive Data score
           unusualAccessPatterns: { type: Number }, // unusual Access Patterns score
@@ -16,8 +16,8 @@ const ReportUserBehavior = new mongoose.Schema({
       ],
     },
   ],
-  month: { type: String, required: true }, // Month of the report
-  year: { type: String, required: true }, // Year of the report
+  month: { type: String }, // Month of the report
+  year: { type: String }, // Year of the report
 });
 
 // Ensure unique combination of month and year
@@ -28,7 +28,5 @@ const ReportUserBehavior = new mongoose.Schema({
 //   },
 //   { unique: true }
 // );
-
-
 
 module.exports = mongoose.model("ReportUserBehavior", ReportUserBehavior);

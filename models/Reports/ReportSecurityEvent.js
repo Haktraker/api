@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const ReportSecurityEventSchema = new mongoose.Schema({
   bu: [
     {
-      name: { type: String, required: true }, // Business Unit name (e.g., "CWC", "Alrashed Food", etc.)
+      name: { type: String }, // Business Unit name (e.g., "CWC", "Alrashed Food", etc.)
       alertTypes: [
         {
-          alertType: { type: String, required: true }, // Alert type (e.g., "Alert Volume", "Security Event")
-          score: { type: Number, required: true }, // Score for the alert type
+          alertType: { type: String }, // Alert type (e.g., "Alert Volume", "Security Event")
+          score: { type: Number }, // Score for the alert type
           alertVolume: { type: Number }, // Alert Volume score
           securityEvent: { type: Number }, // Security Event score
           incident: { type: Number }, // Incident score
@@ -16,8 +16,8 @@ const ReportSecurityEventSchema = new mongoose.Schema({
       ],
     },
   ],
-  month: { type: String, required: true }, // Month of the report
-  year: { type: String, required: true }, // Year of the report
+  month: { type: String }, // Month of the report
+  year: { type: String }, // Year of the report
 });
 
 // // Ensure unique combination of month and year

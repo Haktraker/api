@@ -4,32 +4,26 @@ const Impersonation = new mongoose.Schema(
   {
     detectionTime: {
       type: Date,
-      required: [true, "Impersonation detectionTime required"],
     },
-    user: { type: String, required: [true, "Impersonation user required"] },
+    user: { type: String },
     password: {
       type: String,
-      required: [true, "Impersonation password required"],
     },
-    url: { type: String, required: [true, "Impersonation url required"] },
-    bu: { type: String, required: [true, "Impersonation bu required"] },
+    url: { type: String },
+    bu: { type: String },
     source: {
       type: String,
-      required: [true, "Impersonation source required"],
     },
     mitigationSteps: {
       type: String,
-      required: [true, "Impersonation mitigationSteps required"],
     },
     screenshot: {
       type: String,
-      required: [true, "Impersonation screenshot required"],
     },
     status: {
       type: String,
       enum: ["investigating", "resolved", "unresolved"],
       default: "unresolved",
-      required: [true, "Impersonation status required"],
     },
   },
   { timestamps: true }

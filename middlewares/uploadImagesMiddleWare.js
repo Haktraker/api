@@ -1,39 +1,23 @@
 const multer = require("multer");
+const { v4: uuidv4 } = require("uuid");
 const ApiError = require("../utils/apiError");
 
 let options = (folderName) => {
   const storage = multer.diskStorage({});
-
   function fileFilter(req, file, cb) {
-    // Allowed MIME types
-    const allowedMimeTypes = [
-      "image/jpeg",
-      "image/png",
-      "image/gif",
-      "image/webp",
-      "text/plain",
-      "application/pdf",
-      "application/zip",
-      "application/x-zip-compressed",
-    ];
-
-    // Check if the file's MIME type is in the allowed list
-    if (allowedMimeTypes.includes(file.mimetype)) {
+    if (file.mimetype.startsWith("image")) {
       cb(null, true);
     } else {
-      cb(
-        new ApiError("Only images, text, PDF, and ZIP files are allowed", 400),
-        false
-      );
+      cb(new ApiError("Only Images allowed", 400), false);
     }
   }
-
   const upload = multer({ storage, fileFilter });
   return upload;
 };
 
 exports.uploadSingleFile = (fieldName, folderName) =>
   options(folderName).single(fieldName);
+
 
 // exports.uploadSingleFile = (filedName) => {
 //   const storage = multer.diskStorage({

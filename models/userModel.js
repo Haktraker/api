@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "password is required"],
-      minlenght: [6, "Too Short password"],
+      minlength: [6, "Too Short password"],
     },
     passwordChangedAt: Date,
     passwordResetCode: String,
@@ -42,4 +42,5 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 12);
   next();
 });
+
 module.exports = mongoose.model("user", userSchema);
