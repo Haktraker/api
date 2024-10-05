@@ -6,8 +6,7 @@ const ApiError = require("../utils/apiError");
 const sendEmail = require("../utils/sendEmail");
 const User = require("../models/userModel");
 const { createToken } = require("../utils/createToken");
-const { sanitizeUser } = require("../utils/sanitizeData");
-
+ 
 // @desc      Create User
 // @route     POST /api/auth/signup
 // @access    Public
@@ -87,7 +86,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
   req.user = currentUser;
   next();
 });
-
+ 
 // @desc     check who is allowed to access this route
 exports.allowedTo = (...roles) =>
   asyncHandler(async (req, res, next) => {
