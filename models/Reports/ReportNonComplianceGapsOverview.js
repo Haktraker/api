@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const ReportNonComplianceGapsOverviewSchema = new mongoose.Schema(
   {
+    year: { type: String }, // Add year field
     month: {
       type: String,
     },
@@ -12,16 +13,27 @@ const ReportNonComplianceGapsOverviewSchema = new mongoose.Schema(
     score: {
       type: String,
     },
-    year: { type: String }, // Add year field
+    details: {
+      quarter: { type: Number },
+      issueName: { type: String }, // Add year field
+      relatedStandard: { type: String }, // Add year field
+      priorityLevel: {
+        type: String,
+        enum: ["low", "medium", "high", "critical"],
+      }, // Add year field
+      recommendation: { type: String }, // Add year field
+      status: { type: String, enum: ["in progress", "open", "resolved"] }, // Add year field
+      responsiblePerson: { type: String }, // Add year field
+    },
   },
   { timestamps: true }
 );
 
-// Add compound unique index on month and compliance
-ReportNonComplianceGapsOverviewSchema.index(
-  { month: 1, compliance: 1 },
-  { unique: true }
-);
+// // Add compound unique index on month and compliance
+// ReportNonComplianceGapsOverviewSchema.index(
+//   { month: 1, compliance: 1 },
+//   { unique: true }
+// );
 
 module.exports = mongoose.model(
   "ReportNonComplianceGapsOverview",

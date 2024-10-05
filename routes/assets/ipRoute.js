@@ -15,7 +15,6 @@ const {
 } = require("../../utils/validators/assets/ipValidator");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getips);
 router.route("/:id").get(getipValidator, getip);
