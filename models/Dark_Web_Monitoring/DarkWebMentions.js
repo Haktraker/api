@@ -29,27 +29,29 @@ const DarkWebMentionsSchema = new mongoose.Schema(
       type: String,
       enum: ["credentials", "corporate assets", "brand mentions"],
     },
-    details: {
-      user: {
-        type: String,
+    details: [
+      {
+        user: {
+          type: String,
+        },
+        password: {
+          type: String,
+        },
+        timestamp: {
+          type: Date,
+        },
+        riskLevel: {
+          type: String,
+          enum: ["low", "high", "medium", "critical"],
+        },
+        dataType: {
+          type: String, // Example: 'Credentials', 'Corporate Assets', etc.
+        },
+        url: {
+          type: String, // Example: 'owa.alrashed.com'
+        },
       },
-      password: {
-        type: String,
-      },
-      timestamp: {
-        type: Date,
-      },
-      riskLevel: {
-        type: String,
-        enum: ["low", "high", "medium", "critical"],
-      },
-      dataType: {
-        type: String, // Example: 'Credentials', 'Corporate Assets', etc.
-      },
-      url: {
-        type: String, // Example: 'owa.alrashed.com'
-      },
-    },
+    ],
   },
   { timestamps: true }
 );
