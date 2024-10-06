@@ -9,12 +9,12 @@ const {
 } = require("../../services/Executive_Dashboard/QuarterlyIncidentServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getQuarterlyIncidents);
 router.route("/:id").get(getQuarterlyIncident);
 
-router.use(auth.allowedTo("admin"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 
 router.route("/").post(createQuarterlyIncident);
 router

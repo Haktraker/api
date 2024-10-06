@@ -15,12 +15,10 @@ const {
 } = require("../../utils/validators/Detections/EDRXDRDetectionsValidators");
 
 const router = express.Router();
-router.use(auth.protect);
 router.route("/").get(getEDRXDRDetections);
 router.route("/:id").get(getEDRXDRDetectionValidator, getEDRXDRDetection);
-
-router.use(auth.allowedTo("admin"));
-
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateEDRXDRDetectionValidator, updateEDRXDRDetection)

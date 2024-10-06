@@ -10,13 +10,11 @@ const {
 
 const router = express.Router();
 
-router.use(auth.protect);
-
 router.route("/").get(getQuarterlySecurityBreachIndicatorss);
 router.route("/:id").get(getQuarterlySecurityBreachIndicators);
 
-router.use(auth.allowedTo("admin"));
-
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateQuarterlySecurityBreachIndicators)

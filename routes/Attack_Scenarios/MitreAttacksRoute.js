@@ -10,10 +10,10 @@ const {
 
 const router = express.Router();
 
-router.use(auth.protect);
 router.route("/").get(getMitreAttackss);
 router.route("/:id").get(getMitreAttacks);
-router.use(auth.allowedTo("admin"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 
 router.route("/:id").patch(updateMitreAttacks).delete(deleteMitreAttacks);
 router.route("/").post(createMitreAttacks);

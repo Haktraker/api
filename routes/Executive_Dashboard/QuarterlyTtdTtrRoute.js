@@ -10,12 +10,12 @@ const {
 
 const router = express.Router();
 
-router.use(auth.protect);
-
 router.route("/").get(getQuarterlyTtdTtrs);
 router.route("/:id").get(getQuarterlyTtdTtr);
 
-router.use(auth.allowedTo("admin", "user"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
+
 router.route("/:id").patch(updateQuarterlyTtdTtr).delete(deleteQuarterlyTtdTtr);
 router.route("/").post(createQuarterlyTtdTtr);
 module.exports = router;

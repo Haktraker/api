@@ -15,11 +15,11 @@ const {
 } = require("../../utils/validators/assets/domainValidator");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getDomains);
 router.route("/:id").get(getDomainValidator, getDomain);
 
+router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")

@@ -15,13 +15,11 @@ const {
 } = require("../../utils/validators/Detections/NDRDetectionsValidators");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getNDRDetections);
 router.route("/:id").get(getNDRDetectionValidator, getNDRDetection);
-
-router.use(auth.allowedTo("admin"));
-
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateNDRDetectionValidator, updateNDRDetection)

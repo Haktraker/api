@@ -12,12 +12,11 @@ const {
 } = require("../../utils/validators/Dark_Web_Monitoring/LeakedCredentialsValidator");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getleakedCredentials);
 router.route("/:id").get(getleakedCredential);
-
-router.use(auth.allowedTo("admin"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateleakedCredential)

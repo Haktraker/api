@@ -10,16 +10,16 @@ const {
 } = require("../../services/Account_Take_Over/accountTakeoverServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getAccountTakeovers);
 router.route("/:id").get(getAccountTakeover);
 
-router.use( auth.allowedTo("admin", "user"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(uploadScreenshot, updateAccountTakeover)
   .delete(deleteAccountTakeover);
-router.use( auth.allowedTo("admin"));
+router.use(auth.allowedTo("admin"));
 router.route("/").post(uploadScreenshot, createAccountTakeover);
 module.exports = router;

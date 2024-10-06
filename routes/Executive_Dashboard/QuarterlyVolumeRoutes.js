@@ -9,12 +9,12 @@ const {
 } = require("../../services/Executive_Dashboard/QuarterlyVolumeServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getQuarterlyVolumes);
 router.route("/:id").get(getQuarterlyVolume);
 
-router.use(auth.allowedTo("admin"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 
 router.route("/:id").patch(updateQuarterlyVolume).delete(deleteQuarterlyVolume);
 router.route("/").post(createQuarterlyVolume);

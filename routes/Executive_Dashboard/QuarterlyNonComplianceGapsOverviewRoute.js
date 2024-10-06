@@ -9,13 +9,12 @@ const {
 } = require("../../services/Executive_Dashboard/QuarterlyNonComplianceGapsOverviewServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getQuarterlyNonComplianceGapsOverviews);
 router.route("/:id").get(getQuarterlyNonComplianceGapsOverview);
 
-router.use(auth.allowedTo("admin"));
-
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateQuarterlyNonComplianceGapsOverview)

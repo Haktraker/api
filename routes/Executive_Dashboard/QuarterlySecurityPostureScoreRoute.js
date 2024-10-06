@@ -9,13 +9,12 @@ const {
 } = require("../../services/Executive_Dashboard/QuarterlySecurityPostureScoreServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getQuarterlySecurityPostureScores);
 router.route("/:id").get(getQuarterlySecurityPostureScore);
 
-router.use(auth.allowedTo("admin"));
-
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateQuarterlySecurityPostureScore)

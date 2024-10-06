@@ -9,13 +9,12 @@ const {
 } = require("../../services/Executive_Dashboard/QuarterlySecurityEventServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getQuarterlySecurityEvents);
 router.route("/:id").get(getQuarterlySecurityEvent);
 
-router.use(auth.allowedTo("admin"));
-
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateQuarterlySecurityEvent)
