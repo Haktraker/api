@@ -15,12 +15,13 @@ const {
 } = require("../utils/validators/vulnerabilitiesIntelligenceValidators");
 
 const router = express.Router();
-router.use(auth.protect);
 router.route("/").get(getVulnerabilitiesIntelligences);
 router
   .route("/:id")
   .get(getVulnerabilitiesIntelligenceValidator, getVulnerabilitiesIntelligence);
-router.use(auth.allowedTo("admin", "user"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
+
 router
   .route("/:id")
   .patch(
