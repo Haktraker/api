@@ -10,11 +10,11 @@ const {
 } = require("../../services/Account_Take_Over/executiveVipProtectionServices");
 
 const router = express.Router();
-router.use(auth.protect);
 router.route("/").get(getExecutiveVipProtections);
 router.route("/:id").get(getExecutiveVipProtection);
 
-router.use(auth.allowedTo("admin", "user"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(uploadScreenshot, updateExecutiveVipProtection)

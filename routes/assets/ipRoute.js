@@ -19,6 +19,7 @@ const router = express.Router();
 router.route("/").get(getips);
 router.route("/:id").get(getipValidator, getip);
 
+router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")

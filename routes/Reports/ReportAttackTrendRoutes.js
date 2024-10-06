@@ -9,12 +9,12 @@ const {
 } = require("../../services/Reports/ReportAttackTrendServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getReportAttackTrends);
 router.route("/:id").get(getReportAttackTrend);
-router.use(auth.allowedTo("admin"));
 
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateReportAttackTrend)

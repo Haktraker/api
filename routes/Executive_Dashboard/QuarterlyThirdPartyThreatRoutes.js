@@ -10,12 +10,11 @@ const {
 
 const router = express.Router();
 
-router.use(auth.protect);
-
 router.route("/").get(getQuarterlyThirdPartyThreats);
 router.route("/:id").get(getQuarterlyThirdPartyThreat);
 
-router.use(auth.allowedTo("admin"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateQuarterlyThirdPartyThreat)

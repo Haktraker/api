@@ -15,11 +15,11 @@ const {
 } = require("../../utils/validators/Dark_Web_Monitoring/DarkWebMentionsValidator");
 
 const router = express.Router();
-router.use(auth.protect);
 router.route("/").get(getDarkWebMentions);
 router.route("/:id").get(getDarkWebMentionValidator, getDarkWebMention);
 
-router.use(auth.allowedTo("admin"));
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(updateDarkWebMentionValidator, updateDarkWebMention)

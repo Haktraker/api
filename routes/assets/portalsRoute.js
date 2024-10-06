@@ -15,10 +15,11 @@ const {
 } = require("../../utils/validators/assets/portalsValidator");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getportals);
 router.route("/:id").get(getportalValidator, getportal);
+
+router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 
 router
