@@ -13,18 +13,20 @@ const ReportNonComplianceGapsOverviewSchema = new mongoose.Schema(
     score: {
       type: String,
     },
-    details: {
-      quarter: { type: Number },
-      issueName: { type: String }, // Add year field
-      relatedStandard: { type: String }, // Add year field
-      priorityLevel: {
-        type: String,
-        enum: ["low", "medium", "high", "critical"],
-      }, // Add year field
-      recommendation: { type: String }, // Add year field
-      status: { type: String, enum: ["in progress", "open", "resolved"] }, // Add year field
-      responsiblePerson: { type: String }, // Add year field
-    },
+    details: [
+      {
+        quarter: { type: Number },
+        issueName: { type: String }, // Add year field
+        relatedStandard: { type: String }, // Add year field
+        priorityLevel: {
+          type: String,
+          enum: ["low", "medium", "high", "critical"],
+        }, // Add year field
+        recommendation: { type: String }, // Add year field
+        status: { type: String, enum: ["in progress", "open", "resolved"] }, // Add year field
+        responsiblePerson: { type: String }, // Add year field
+      },
+    ],
   },
   { timestamps: true }
 );
