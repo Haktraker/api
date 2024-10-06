@@ -215,6 +215,11 @@ exports.changePassword = asyncHandler(async (req, res, next) => {
   if (confirmPassword !== newPassword) {
     return next(new ApiError("Passwords is not matched", 401));
   }
+  if (newPassword === currentPassword) {
+    return next(
+      new ApiError("You Used the old Password Please change it", 405)
+    );
+  }
   // 3- Update the password
   user.password = newPassword; // This will trigger the pre-save hook to hash the password
   await user.save();
