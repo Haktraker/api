@@ -9,11 +9,13 @@ const {
 } = require("../services/CyberAttackTrendsServices");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getCyberAttackTrends);
 router.route("/:id").get(getCyberAttackTrend);
-router.use(auth.allowedTo("admin"));
+
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
+
 router
   .route("/:id")
   .patch(updateCyberAttackTrends)

@@ -15,11 +15,13 @@ const {
 } = require("../utils/validators/brandReputationValidators");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getBrandsReputation);
 router.route("/:id").get(getBrandReputationValidator, getBrandReputation);
-router.use(auth.allowedTo("admin"));
+
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
+
 router
   .route("/:id")
   .patch(updateBrandReputationValidator, updateBrandReputation)

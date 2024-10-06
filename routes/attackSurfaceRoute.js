@@ -16,11 +16,12 @@ const {
 } = require("../utils/validators/attackSurfaceValidators");
 
 const router = express.Router();
-router.use(auth.protect);
 
 router.route("/").get(getAttackSurfaces);
 router.route("/:id").get(getAttackSurfaceValidator, getAttackSurface);
-router.use(auth.allowedTo("admin", "user"));
+
+router.use(auth.protect);
+router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
   .patch(uploadScreenshot, updateAttackSurfaceValidator, updateAttackSurface)
