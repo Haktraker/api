@@ -6,7 +6,7 @@ const ApiError = require("../utils/apiError");
 const sendEmail = require("../utils/sendEmail");
 const User = require("../models/userModel");
 const { createToken } = require("../utils/createToken");
- 
+
 // @desc      Create User
 // @route     POST /api/auth/signup
 // @access    Public
@@ -86,7 +86,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
   req.user = currentUser;
   next();
 });
- 
+
 // @desc     check who is allowed to access this route
 exports.allowedTo = (...roles) =>
   asyncHandler(async (req, res, next) => {
@@ -199,7 +199,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 // @route     POST /api/auth/change-password
 // @access    Private
 exports.changePassword = asyncHandler(async (req, res, next) => {
-  const { currentPassword, newPassword } = req.body;
+  const { currentPassword, newPassword, confirmPassword } = req.body;
 
   // 1- Get User from Request (assuming user info is in req.user after authentication)
   const user = await User.findById(req.user._id); // req.user.id should come from your auth middleware
@@ -212,7 +212,9 @@ exports.changePassword = asyncHandler(async (req, res, next) => {
   if (!isMatch) {
     return next(new ApiError("Current password is incorrect", 401));
   }
-
+  if (confirmPassword !== newPassword) {
+    return next(new ApiError("Passwords is not matched", 401));
+  }
   // 3- Update the password
   user.password = newPassword; // This will trigger the pre-save hook to hash the password
   await user.save();
