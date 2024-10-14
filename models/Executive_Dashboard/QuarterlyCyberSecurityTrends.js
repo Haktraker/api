@@ -14,6 +14,7 @@ const QuarterlyCyberSecurityTrends = new mongoose.Schema(
     solutions: [String],
     year: { type: String }, // Add year field
     month: { type: String }, // Add month field
+    quarter: { type: Number },
   },
   { timestamps: true }
 );
