@@ -25,6 +25,8 @@ const ReportNonComplianceGapsOverviewSchema = new mongoose.Schema(
         recommendation: { type: String }, // Add year field
         status: { type: String, enum: ["in progress", "open", "resolved"] }, // Add year field
         responsiblePerson: { type: String }, // Add year field
+        user: { type: String },
+        bu: { type: String },
       },
     ],
   },
