@@ -61,8 +61,10 @@ app.use(globalError);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*", // Change to your client URL
-    methods: ["GET", "POST"],
+    origin:
+      "https://www.haktraksecops.com" ||
+      "https://haktraker-hak-trak.vercel.app" ||
+      "https://haktraker-git-main-hak-trak.vercel.app", // Change to your client URL
   },
 });
 
@@ -78,7 +80,7 @@ io.on("connection", (socket) => {
 
   // Event listeners for different actions and broadcasting to all clients
   socket.on("ipadded", (data) => {
-    console.log(data,"added ip")
+    console.log(data, "added ip");
     io.emit("newipadded", data); // Broadcast IP added notification to all connected clients
   });
 
