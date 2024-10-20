@@ -23,6 +23,7 @@ dbConnection();
 
 // Express app
 const app = express();
+app.use(cors("*"));
 app.use(cors({ origin: "*" }));
 app.use(express.json({ limit: "20kb" }));
 app.use(express.static(path.join(__dirname, "uploads")));
@@ -230,7 +231,7 @@ io.on("connection", (socket) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000 || 8000;
+const PORT = process.env.PORT || 3000 || 8000 || 14150;
 server.listen(PORT, () => console.log(`Running on port: ${PORT}`));
 
 // Handling Errors (rejections) Outside Express
