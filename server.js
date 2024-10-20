@@ -78,6 +78,7 @@ io.on("connection", (socket) => {
 
   // Event listeners for different actions and broadcasting to all clients
   socket.on("ipadded", (data) => {
+    console.log(data,"added ip")
     io.emit("newipadded", data); // Broadcast IP added notification to all connected clients
   });
 
