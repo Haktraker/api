@@ -62,9 +62,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin:
-      "https://www.haktraksecops.com" ||
-      "https://haktraker-hak-trak.vercel.app" ||
-      "https://haktraker-git-main-hak-trak.vercel.app", // Change to your client URL
+     "*"
   },
 });
 
