@@ -60,10 +60,7 @@ app.use(globalError);
 // Initialize HTTP server and Socket.IO
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: {
-    origin:
-     "*"
-  },
+  cors: "*"
 });
 
 // Listen for socket connections
