@@ -61,7 +61,8 @@ app.use(globalError);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://www.haktraksecops.com",
+    origin: "*",
+    // origin: "https://www.haktraksecops.com",
   },
 });
 
