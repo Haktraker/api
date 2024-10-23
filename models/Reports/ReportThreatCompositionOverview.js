@@ -18,23 +18,27 @@ const ReportThreatCompositionOverview = new mongoose.Schema(
     },
     threatType: {
       type: String,
-      // enum: [
-      //   "Malware Variants",
-      //   "Phishing Attempts",
-      //   "Intrusion Attempts",
-      //   "Insider Threats",
-      // ],
+      enum: [
+        "Malware Variants",
+        "Phishing Attempts",
+        "Intrusion Attempts",
+        "Insider Threats",
+        "ATO",
+        "Trojan and Malware",
+        "3rd Party leaks",
+        "Attack Surfaces",
+      ],
       trim: true,
     },
     attackVector: {
       type: String,
-      // enum: [
-      //   "Email",
-      //   "Network Ports",
-      //   "Social Engineering",
-      //   "Applications",
-      //   "Removable Media",
-      // ], // Attack vectors based on the image
+      enum: [
+        "Email",
+        "Network Ports",
+        "Social Engineering",
+        "Applications",
+        "Removable Media",
+      ],
       trim: true,
     },
     bu: {
@@ -73,12 +77,6 @@ const ReportThreatCompositionOverview = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
-// Indexing month, year, and threat type for uniqueness.
-// ReportThreatCompositionOverview.index(
-//   { month: 1, year: 1, threatType: 1 },
-//   { unique: true }
-// );
 
 module.exports = mongoose.model(
   "ReportThreatCompositionOverview",
