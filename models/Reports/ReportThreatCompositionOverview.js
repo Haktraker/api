@@ -19,7 +19,6 @@ const ReportThreatCompositionOverview = new mongoose.Schema(
     threatType: {
       type: String,
       enum: [
-        "Malware Variants",
         "Phishing Attempts",
         "Intrusion Attempts",
         "Insider Threats",
