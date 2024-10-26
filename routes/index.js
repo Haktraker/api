@@ -69,6 +69,9 @@ const ReportSupplyChainThreatExposureRoute = require("./Reports/ReportSupplyChai
 const ReportAttackTrendsAcrosstheLockheedCyberKillChainRoutes = require("./Reports/ReportAttackTrendsAcrosstheLockheedCyberKillChainRoutes");
 const ReportThreatImpactOverViewRoutes = require("./Reports/ReportThreatImpactOverViewRoutes");
 const ReportLockHeadPhasesRoute = require("./Reports/ReportLockHeadPhasesRoute");
+const ReportThreatBreakDownRoutes = require("./Reports/ReportThreatBreakDownRoutes");
+const ReportIncidentResponseMetricsRoutes = require("./Reports/ReportIncidentResponseMetricsRoutes");
+const ReportThreatSeverityOverTimeRoutes = require("./Reports/ReportThreatSeverityOverTimeRoutes");
 /*************************** Report *************** */
 /*************************** Admin *************** */
 const createUserRoute = require("./userRoute");
@@ -234,6 +237,15 @@ const mountRoutes = (app) => {
     ReportThreatImpactOverViewRoutes
   );
   app.use("/api/reports/lock-head-phases", ReportLockHeadPhasesRoute);
+  app.use("/api/reports/threat-breakdown", ReportThreatBreakDownRoutes);
+  app.use(
+    "/api/reports/incident-response-metrics",
+    ReportIncidentResponseMetricsRoutes
+  );
+  app.use(
+    "/api/reports/threat-severity-overtime",
+    ReportThreatSeverityOverTimeRoutes
+  );
   /*************************** Reports *************** */
 
   app.use("/api/users", userRoute);
