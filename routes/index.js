@@ -72,7 +72,6 @@ const ReportLockHeadPhasesRoute = require("./Reports/ReportLockHeadPhasesRoute")
 const ReportThreatBreakDownRoutes = require("./Reports/ReportThreatBreakDownRoutes");
 const ReportIncidentResponseMetricsRoutes = require("./Reports/ReportIncidentResponseMetricsRoutes");
 const ReportThreatSeverityOverTimeRoutes = require("./Reports/ReportThreatSeverityOverTimeRoutes");
-const ReportKillChainRoutes = require("./Reports/ReportKillChainRoutes");
 /*************************** Report *************** */
 /*************************** Admin *************** */
 const createUserRoute = require("./userRoute");
@@ -248,7 +247,6 @@ const mountRoutes = (app) => {
     "/api/reports/threat-severity-overtime",
     ReportThreatSeverityOverTimeRoutes
   );
-  app.use("/api/reports/kill-chain-table", ReportKillChainRoutes);
   /*************************** Reports *************** */
 
   app.use("/api/users", userRoute);
