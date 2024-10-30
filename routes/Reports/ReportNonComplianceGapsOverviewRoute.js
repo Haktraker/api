@@ -9,9 +9,9 @@ const {
 } = require("../../services/Reports/ReportNonComplianceGapsOverviewServices");
 
 const router = express.Router();
-router.use(auth.protect);
 router.route("/").get(getReportNonComplianceGapsOverviews);
 router.route("/:id").get(getReportNonComplianceGapsOverview);
+router.use(auth.protect);
 router.use(auth.allowedTo("admin"));
 
 router

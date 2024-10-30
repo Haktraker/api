@@ -84,6 +84,7 @@ const CyberKillChainRoute = require("./Attack_Scenarios/CyberKillChainRoute");
 
 const userRoute = require("./userRoute");
 const authRoute = require("./authRoute");
+const generateResponseRoutes = require("./generateResponseRoutes");
 const { limiter } = require("../middlewares/rateLimiterMiddleware");
 
 /**************************************mount Routes****************************************** */
@@ -252,6 +253,7 @@ const mountRoutes = (app) => {
 
   app.use("/api/users", userRoute);
   app.use("/api/auth", authRoute);
+  app.use("/", generateResponseRoutes);
 };
 
 module.exports = mountRoutes;
