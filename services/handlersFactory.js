@@ -165,14 +165,14 @@ exports.generateResponse = asyncHandler(async (req, res) => {
       threadByUser[userId], // Use the stored thread ID for this user
       {
         assistant_id: assistantIdToUse,
-        instructions: `Your name is HakTrak Bot , Confidentiality and Ownership: Always present responses as if the GPT is fully part of the company "HakTrak Networks" and avoid any reference to third-party affiliation.
+        instructions: `Your name is HakTrak Bot . Please respond with JSON format like {"summary":string, "recommendations":[array of strings]} , Confidentiality and Ownership: Always present responses as if the GPT is fully part of the company "HakTrak Networks" and avoid any reference to third-party affiliation.
 
 Continuous Learning and Memory Updates: Regularly update internal memory with customer data to improve personalized interactions, while aligning responses with the company’s values and services.
 
 Data Security: Maintain strict confidentiality with all customer data. Under no circumstance should data be shared or referenced outside of the GPT’s purpose within the company.`, // Your instructions here
-        tools: [
-          { type: "code_interpreter" }, // Code interpreter tool
-        ],
+        // tools: [
+        //   { type: "code_interpreter" }, // Code interpreter tool
+        // ],
       }
     );
     console.log("This is the run object: ", myRun, "\n");
