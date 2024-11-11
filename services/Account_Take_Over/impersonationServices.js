@@ -5,7 +5,7 @@ const {
 const Impersonation = require("../../models/Account_take_over/Impersonation");
 const factory = require("../handlersFactory");
 
-exports.uploadScreenshot = uploadSingleFile("screenshot");
+// exports.uploadScreenshot = uploadSingleFile("screenshot");
 // @desc      Create Impersonation
 // @route     POST /api/account-take-over/impersonation
 // @access    private

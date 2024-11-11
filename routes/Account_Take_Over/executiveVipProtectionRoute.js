@@ -17,8 +17,8 @@ router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 router
   .route("/:id")
-  .patch(uploadScreenshot, updateExecutiveVipProtection)
+  .patch(updateExecutiveVipProtection)
   .delete(deleteExecutiveVipProtection);
 router.use(auth.allowedTo("admin"));
-router.route("/").post(uploadScreenshot, createExecutiveVipProtection);
+router.route("/").post(createExecutiveVipProtection);
 module.exports = router;

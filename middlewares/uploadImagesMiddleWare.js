@@ -1,5 +1,4 @@
 const multer = require("multer");
-const { v4: uuidv4 } = require("uuid");
 const ApiError = require("../utils/apiError");
 
 let options = (folderName) => {
@@ -11,13 +10,12 @@ let options = (folderName) => {
       cb(new ApiError("Only Images allowed", 400), false);
     }
   }
-  const upload = multer({ storage, fileFilter });
+  const upload = multer({ storage });
   return upload;
 };
 
 exports.uploadSingleFile = (fieldName, folderName) =>
   options(folderName).single(fieldName);
-
 
 // exports.uploadSingleFile = (filedName) => {
 //   const storage = multer.diskStorage({

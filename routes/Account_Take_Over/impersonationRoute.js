@@ -16,11 +16,8 @@ router.route("/:id").get(getImpersonation);
 
 router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
-router
-  .route("/:id")
-  .patch(uploadScreenshot, updateImpersonation)
-  .delete(deleteImpersonation);
+router.route("/:id").patch(updateImpersonation).delete(deleteImpersonation);
 router.use(auth.allowedTo("admin"));
 
-router.route("/").post(uploadScreenshot, createImpersonation);
+router.route("/").post(createImpersonation);
 module.exports = router;

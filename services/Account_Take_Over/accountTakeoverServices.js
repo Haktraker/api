@@ -4,7 +4,7 @@ const {
 const AccountTakeover = require("../../models/Account_take_over/AccountTakeover");
 const factory = require("../handlersFactory");
 
-exports.uploadScreenshot = uploadSingleFile("screenshot");
+// exports.uploadScreenshot = uploadSingleFile("screenshot");
 // @desc      Create Account Take Over
 // @route     POST /api/account-take-over
 // @access    private

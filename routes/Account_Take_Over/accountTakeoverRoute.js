@@ -16,10 +16,7 @@ router.route("/:id").get(getAccountTakeover);
 
 router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
-router
-  .route("/:id")
-  .patch(uploadScreenshot, updateAccountTakeover)
-  .delete(deleteAccountTakeover);
+router.route("/:id").patch(updateAccountTakeover).delete(deleteAccountTakeover);
 router.use(auth.allowedTo("admin"));
-router.route("/").post(uploadScreenshot, createAccountTakeover);
+router.route("/").post(createAccountTakeover);
 module.exports = router;

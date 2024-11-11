@@ -5,7 +5,7 @@ const {
 const ExecutiveVipProtection = require("../../models/Account_take_over/ExecutiveVipProtection");
 const factory = require("../handlersFactory");
 
-exports.uploadScreenshot = uploadSingleFile("screenshot");
+// exports.uploadScreenshot = uploadSingleFile("screenshot");
 // @desc      Create ExecutiveVipProtection
 // @route     POST /api/account-take-over/executive-vip-protection
 // @access    private
