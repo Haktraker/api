@@ -20,6 +20,9 @@ const Impersonation = new mongoose.Schema(
     screenshot: {
       type: String,
     },
+    sampleFile: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ["investigating", "resolved", "unresolved"],

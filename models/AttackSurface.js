@@ -17,6 +17,9 @@ const AttackSurfaceSchema = new mongoose.Schema(
     screenshot: {
       type: String,
     },
+    sampleFile: {
+      type: String,
+    },
     mitigationSteps: {
       type: String,
     },

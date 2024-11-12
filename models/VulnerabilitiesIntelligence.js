@@ -36,6 +36,12 @@ const VulnerabilitiesIntelligenceSchema = new mongoose.Schema(
     mitigationSteps: {
       type: String,
     },
+    sampleFile: {
+      type: String,
+    },
+    sampleFile: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ["investigating", "resolved", "unresolved"],

@@ -11,6 +11,9 @@ const BrandReputationSchema = new mongoose.Schema(
     incidentDescription: {
       type: String,
     },
+    sampleFile: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ["taking down", "in progress", "false positive", "resolving"],
