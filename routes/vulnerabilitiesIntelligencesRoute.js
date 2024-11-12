@@ -16,26 +16,13 @@ const {
 
 const router = express.Router();
 router.route("/").get(getVulnerabilitiesIntelligences);
-router
-  .route("/:id")
-  .get(getVulnerabilitiesIntelligenceValidator, getVulnerabilitiesIntelligence);
+router.route("/:id").get(getVulnerabilitiesIntelligence);
 router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 
 router
   .route("/:id")
-  .patch(
-    updateVulnerabilitiesIntelligenceValidator,
-    updateVulnerabilitiesIntelligence
-  )
-  .delete(
-    deleteVulnerabilitiesIntelligenceValidator,
-    deleteVulnerabilitiesIntelligence
-  );
-router
-  .route("/")
-  .post(
-    createVulnerabilitiesIntelligencesValidator,
-    createVulnerabilitiesIntelligence
-  );
+  .patch(updateVulnerabilitiesIntelligence)
+  .delete(deleteVulnerabilitiesIntelligence);
+router.route("/").post(createVulnerabilitiesIntelligence);
 module.exports = router;

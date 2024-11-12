@@ -17,14 +17,11 @@ const {
 const router = express.Router();
 
 router.route("/").get(getBrandsReputation);
-router.route("/:id").get(getBrandReputationValidator, getBrandReputation);
+router.route("/:id").get(getBrandReputation);
 
 router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
 
-router
-  .route("/:id")
-  .patch(updateBrandReputationValidator, updateBrandReputation)
-  .delete(deleteBrandReputationValidator, deleteBrandReputation);
-router.route("/").post(createBrandReputationsValidator, createBrandReputation);
+router.route("/:id").patch(updateBrandReputation).delete(deleteBrandReputation);
+router.route("/").post(createBrandReputation);
 module.exports = router;

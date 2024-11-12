@@ -18,15 +18,10 @@ const {
 const router = express.Router();
 
 router.route("/").get(getAttackSurfaces);
-router.route("/:id").get(getAttackSurfaceValidator, getAttackSurface);
+router.route("/:id").get(getAttackSurface);
 
 router.use(auth.protect);
 router.use(auth.allowedTo("admin", "user", "assetsAdmin"));
-router
-  .route("/:id")
-  .patch(uploadScreenshot, updateAttackSurfaceValidator, updateAttackSurface)
-  .delete(deleteAttackSurfaceValidator, deleteAttackSurface);
-router
-  .route("/")
-  .post(uploadScreenshot, createAttackSurfacesValidator, createAttackSurface);
+router.route("/:id").patch(updateAttackSurface).delete(deleteAttackSurface);
+router.route("/").post(createAttackSurface);
 module.exports = router;
