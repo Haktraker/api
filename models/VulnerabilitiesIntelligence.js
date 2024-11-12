@@ -39,9 +39,6 @@ const VulnerabilitiesIntelligenceSchema = new mongoose.Schema(
     sampleFile: {
       type: String,
     },
-    sampleFile: {
-      type: String,
-    },
     status: {
       type: String,
       enum: ["investigating", "resolved", "unresolved"],
