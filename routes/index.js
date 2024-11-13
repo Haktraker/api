@@ -259,7 +259,7 @@ const mountRoutes = (app) => {
 
   /*****************  UBA ***************************/
   app.use("/api/uba/analytics", UserBehaviorAnalyticsRoutes);
-  app.use("/api/uba/risk-score-distribution", RiskScoreDistributionRoutes);
+  app.use("/api/uba/risk-score-distributions", RiskScoreDistributionRoutes);
 
   /*****************  UBA ***************************/
 
