@@ -80,6 +80,7 @@ const createUserRoute = require("./userRoute");
 
 /**********************  UBA *********************************************/
 const UserBehaviorAnalyticsRoutes = require("./User_Behavior/UserBehaviorAnalyticsRoutes");
+const RiskScoreDistributionRoutes = require("./User_Behavior/RiskScoreDistributionRoutes");
 
 /**********************  UBA *********************************************/
 
@@ -258,6 +259,7 @@ const mountRoutes = (app) => {
 
   /*****************  UBA ***************************/
   app.use("/api/uba/analytics", UserBehaviorAnalyticsRoutes);
+  app.use("/api/uba/risk-score-distribution", RiskScoreDistributionRoutes);
 
   /*****************  UBA ***************************/
 
