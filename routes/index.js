@@ -78,6 +78,11 @@ const ReportKillChainRoutes = require("./Reports/ReportKillChainRoutes");
 const createUserRoute = require("./userRoute");
 /*************************** Admin *************** */
 
+/**********************  UBA *********************************************/
+const UserBehaviorAnalyticsRoutes = require("./User_Behavior/UserBehaviorAnalyticsRoutes");
+
+/**********************  UBA *********************************************/
+
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
 const CyberKillChainRoute = require("./Attack_Scenarios/CyberKillChainRoute");
@@ -250,6 +255,11 @@ const mountRoutes = (app) => {
   );
   app.use("/api/reports/kill-chain-table", ReportKillChainRoutes);
   /*************************** Reports *************** */
+
+  /*****************  UBA ***************************/
+  app.use("/api/uba/analytics", UserBehaviorAnalyticsRoutes);
+
+  /*****************  UBA ***************************/
 
   app.use("/api/users", userRoute);
   app.use("/api/auth", authRoute);

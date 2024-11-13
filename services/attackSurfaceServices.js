@@ -2,7 +2,7 @@ const AttackSurface = require("../models/AttackSurface");
 const factory = require("./handlersFactory");
 const { uploadSingleFile } = require("../middlewares/uploadImagesMiddleWare");
 
-exports.uploadScreenshot = uploadSingleFile("screenshot");
+// exports.uploadScreenshot = uploadSingleFile("screenshot");
 // @desc      Create AttackSurface
 // @route     POST /api/attack-surface
 // @access    private
