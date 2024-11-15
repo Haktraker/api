@@ -4,6 +4,28 @@ const BehavioralPatternSchema = new mongoose.Schema(
   {
     businessUnit: {
       type: String,
+      enum: [
+        "HO/DR",
+        "CWC",
+        "RAMAT",
+        "EFS",
+        "ETS",
+        "Alrashed Food",
+        "Alrashed Tires",
+        "Jana Marine / Tanajib",
+        "Industrials (Steel, Fast)",
+        "Alrashed Wood",
+        "Admirals",
+        "YAUMI",
+        "BMD",
+        "Saudi Filter",
+        "cement",
+        "Insuwrap",
+        "EFS/ETS",
+        "Ubmksa",
+        "Polystyrene",
+      ],
+      trim: true,
     },
     outsideHoursAccess: {
       type: Number,
