@@ -83,6 +83,8 @@ const UserBehaviorAnalyticsRoutes = require("./User_Behavior/UserBehaviorAnalyti
 const RiskScoreDistributionRoutes = require("./User_Behavior/RiskScoreDistributionRoutes");
 const UserRiskTimelineRoutes = require("./User_Behavior/UserRiskTimelineRoutes");
 const BehavioralPatternRoutes = require("./User_Behavior/BehavioralPatternRoutes");
+const AnomalyCategoryDistributionRoutes = require("./User_Behavior/AnomalyCategoryDistributionRoutes");
+const HighRiskUsersRoutes = require("./User_Behavior/HighRiskUsersRoutes");
 
 /**********************  UBA *********************************************/
 
@@ -264,6 +266,11 @@ const mountRoutes = (app) => {
   app.use("/api/uba/risk-score-distributions", RiskScoreDistributionRoutes);
   app.use("/api/uba/user-risk-timeline", UserRiskTimelineRoutes);
   app.use("/api/uba/behavioral-pattern", BehavioralPatternRoutes);
+  app.use(
+    "/api/uba/anomaly-category-distribution",
+    AnomalyCategoryDistributionRoutes
+  );
+  app.use("/api/uba/high-risk-users", HighRiskUsersRoutes);
 
   /*****************  UBA ***************************/
 
