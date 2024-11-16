@@ -87,6 +87,7 @@ const AnomalyCategoryDistributionRoutes = require("./User_Behavior/AnomalyCatego
 const HighRiskUsersRoutes = require("./User_Behavior/HighRiskUsersRoutes");
 const AlertTrendAnalysisRoutes = require("./User_Behavior/AlertTrendAnalysisRoutes");
 const UserBehaviorPatternAnalysisRoutes = require("./User_Behavior/UserBehaviorPatternAnalysisRoutes");
+const RealTimeActivityFeedRoutes = require("./User_Behavior/RealTimeActivityFeedRoutes");
 
 /**********************  UBA *********************************************/
 
@@ -278,6 +279,7 @@ const mountRoutes = (app) => {
     "/api/uba/user-behavior-pattern-analysis",
     UserBehaviorPatternAnalysisRoutes
   );
+  app.use("/api/uba/realtime-activity-feed", RealTimeActivityFeedRoutes);
 
   /*****************  UBA ***************************/
 
