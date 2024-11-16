@@ -5,7 +5,7 @@ const RealTimeActivityFeed = new mongoose.Schema(
     activity: {
       type: String,
     },
-    commnet: {
+    comment: {
       type: String,
     },
     month: {
