@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
-const UserRiskTimeline = new mongoose.Schema(
+const AlertTrendAnalysis = new mongoose.Schema(
   {
     risk: {
       month: {
         type: String,
       },
-      day: {
+      week: {
         type: Number,
         min: 1,
-        max: 31, // Maximum days in a month
+        max: 4, // Maximum days in a month
       },
       severity: {
         type: String,
@@ -28,4 +28,4 @@ const UserRiskTimeline = new mongoose.Schema(
 
 // Adding a pre-save middleware to update the `updatedAt` field automatically
 
-module.exports = mongoose.model("UserRiskTimeline", UserRiskTimeline);
+module.exports = mongoose.model("AlertTrendAnalysis", AlertTrendAnalysis);
