@@ -90,6 +90,9 @@ const UserBehaviorPatternAnalysisRoutes = require("./User_Behavior/UserBehaviorP
 const RealTimeActivityFeedRoutes = require("./User_Behavior/RealTimeActivityFeedRoutes");
 
 /**********************  UBA *********************************************/
+/**********************  Bu Security *********************************************/
+/**********************  Bu Security *********************************************/
+const BuAlertsRoutes = require("./Business_Units_Security/BuAlertsRoutes");
 
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
@@ -282,6 +285,10 @@ const mountRoutes = (app) => {
   app.use("/api/uba/realtime-activity-feed", RealTimeActivityFeedRoutes);
 
   /*****************  UBA ***************************/
+
+  /*****************  Bu Security ***************************/
+  app.use("/api/bu-security/bu-alerts", BuAlertsRoutes);
+  /*****************  Bu Security ***************************/
 
   app.use("/api/users", userRoute);
   app.use("/api/auth", authRoute);
