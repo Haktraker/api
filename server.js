@@ -72,9 +72,9 @@ io.on("connection", (socket) => {
 
 
   // Event listeners for user disconnection
-  socket.on("disconnect", () => {
-    console.log("User disconnected:", socket.id);
-  });
+  // socket.on("disconnect", () => {
+  //   console.log("User disconnected:", socket.id);
+  // });
 
   // Event listeners for different actions and broadcasting to all clients
   socket.on("ipadded", (data) => {
