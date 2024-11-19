@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
-const CompanyRiskScoresSchema = new mongoose.Schema(
+const RecentSecurityEventsSchema = new mongoose.Schema(
   {
     bus: [
       {
         name: {
           type: String,
         },
-        count: {
-          type: Number,
+        comment: {
+          type: String,
         },
       },
     ],
@@ -22,4 +22,4 @@ const CompanyRiskScoresSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("CompanyRiskScores", CompanyRiskScoresSchema);
+module.exports = mongoose.model("RecentSecurityEvents", RecentSecurityEventsSchema);

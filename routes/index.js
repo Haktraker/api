@@ -95,6 +95,7 @@ const RealTimeActivityFeedRoutes = require("./User_Behavior/RealTimeActivityFeed
 const BuAlertsRoutes = require("./Business_Units_Security/BuAlertsRoutes");
 const AlertSeverityTrendRoutes = require("./Business_Units_Security/AlertSeverityTrendRoutes");
 const CompanyRiskScoresRoutes = require("./Business_Units_Security/CompanyRiskScoresRoutes");
+const RecentSecurityEventsRoutes = require("./Business_Units_Security/RecentSecurityEventsRoutes");
 
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
@@ -292,6 +293,10 @@ const mountRoutes = (app) => {
   app.use("/api/bu-security/bu-alerts", BuAlertsRoutes);
   app.use("/api/bu-security/alert-severity-trends", AlertSeverityTrendRoutes);
   app.use("/api/bu-security/company-risk-scores", CompanyRiskScoresRoutes);
+  app.use(
+    "/api/bu-security/recent-security-events",
+    RecentSecurityEventsRoutes
+  );
   /*****************  Bu Security ***************************/
 
   app.use("/api/users", userRoute);
