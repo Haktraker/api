@@ -10,6 +10,10 @@ const RecentSecurityEventsSchema = new mongoose.Schema(
         comment: {
           type: String,
         },
+        severity:{
+          type: String,
+          enum: ["Low", "Medium", "High", "Critical"],
+        }
       },
     ],
     month: {
