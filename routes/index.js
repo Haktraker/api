@@ -97,6 +97,7 @@ const AlertSeverityTrendRoutes = require("./Business_Units_Security/AlertSeverit
 const CompanyRiskScoresRoutes = require("./Business_Units_Security/CompanyRiskScoresRoutes");
 const RecentSecurityEventsRoutes = require("./Business_Units_Security/RecentSecurityEventsRoutes");
 const BUIncidentResponseMetricsRoute = require("./Business_Units_Security/BUIncidentResponseMetricsRoute");
+const VulnerabilitiesAndPatchedRoutes = require("./Business_Units_Security/VulnerabilitiesAndPatchedRoutes");
 
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
@@ -301,6 +302,10 @@ const mountRoutes = (app) => {
   app.use(
     "/api/bu-security/bu-incident-response-metrics",
     BUIncidentResponseMetricsRoute
+  );
+  app.use(
+    "/api/bu-security/vulnerabilities-and-patched",
+    VulnerabilitiesAndPatchedRoutes
   );
   /*****************  Bu Security ***************************/
 
