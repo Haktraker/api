@@ -8,22 +8,24 @@ const BUIncidentResponseMetrics = new mongoose.Schema(
     year: {
       type: String,
     },
-    bu: {
-      name: {
-        type: String,
-      },
-      indicators: [
-        {
-          indicator: {
-            type: String,
-            enum: ["MTTD", "MTTR", "MTTA"],
-          },
-          score: {
-            type: Number,
-          },
+    bu: [
+      {
+        name: {
+          type: String,
         },
-      ],
-    },
+        indicators: [
+          {
+            indicator: {
+              type: String,
+              enum: ["MTTD", "MTTR", "MTTA"],
+            },
+            score: {
+              type: Number,
+            },
+          },
+        ],
+      },
+    ],
   },
   { timestamps: true }
 );
