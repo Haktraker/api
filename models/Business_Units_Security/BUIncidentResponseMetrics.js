@@ -14,6 +14,7 @@ const UIncidentResponseMetrics = new mongoose.Schema(
       type: String,
       enum: ["MTTD", "MTTR", "MTTA"],
     },
+    bu: { type: String },
   },
   { timestamps: true }
 );
