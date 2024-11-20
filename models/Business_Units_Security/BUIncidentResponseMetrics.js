@@ -1,27 +1,34 @@
 const mongoose = require("mongoose");
 
-const UIncidentResponseMetrics = new mongoose.Schema(
+const BUIncidentResponseMetrics = new mongoose.Schema(
   {
     month: {
       type: String,
-      trim: true,
     },
-    year: { type: String }, // Add year field
-    score: {
+    year: {
       type: String,
     },
-    indicator: {
-      type: String,
-      enum: ["MTTD", "MTTR", "MTTA"],
+    bu: {
+      name: {
+        type: String,
+      },
+      indicators: [
+        {
+          indicator: {
+            type: String,
+            enum: ["MTTD", "MTTR", "MTTA"],
+          },
+          score: {
+            type: Number,
+          },
+        },
+      ],
     },
-    bu: { type: String },
   },
   { timestamps: true }
 );
 
-// UIncidentResponseMetrics.index({ month: 1, indicator: 1 }, { unique: true });
-
 module.exports = mongoose.model(
-  "UIncidentResponseMetrics",
-  UIncidentResponseMetrics
+  "BUIncidentResponseMetrics",
+  BUIncidentResponseMetrics
 );
