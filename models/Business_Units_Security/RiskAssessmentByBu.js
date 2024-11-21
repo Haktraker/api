@@ -8,7 +8,10 @@ const RiskAssessmentByBu = new mongoose.Schema(
       name: { type: String },
       severities: [
         {
-          severity: { type: String },
+          severity: {
+            type: String,
+            enum: ["Critical", "High", "Low", "Medium"],
+          },
           count: { type: Number },
         },
       ],
