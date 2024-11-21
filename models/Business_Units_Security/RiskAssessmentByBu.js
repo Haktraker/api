@@ -4,7 +4,7 @@ const RiskAssessmentByBu = new mongoose.Schema(
   {
     month: { type: String },
     year: { type: String },
-    bu: {
+    bu:[ {
       name: { type: String },
       severities: [
         {
@@ -15,7 +15,7 @@ const RiskAssessmentByBu = new mongoose.Schema(
           count: { type: Number },
         },
       ],
-    },
+    }],
   },
   { timestamps: true }
 );
