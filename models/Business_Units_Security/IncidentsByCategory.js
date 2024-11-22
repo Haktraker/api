@@ -4,17 +4,17 @@ const IncidentsByCategory = new mongoose.Schema(
   {
     month: { type: String },
     year: { type: String },
-    incident: [
+    bu: [
       {
-        name: {
-          type: String,
-          enum: ["Malware", "Phishing", "Data Breach", "Access Violation"],
-        },
-        resolved: { type: Number },
-        pending: { type: Number },
-        bu: [
+        buName: { type: String },
+        incident: [
           {
-            buName: { type: String },
+            name: {
+              type: String,
+              enum: ["Malware", "Phishing", "Data Breach", "Access Violation"],
+            },
+            resolved: { type: Number },
+            pending: { type: Number },
           },
         ],
       },
