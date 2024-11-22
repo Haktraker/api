@@ -102,6 +102,7 @@ const RiskAssessmentByBuRoutes = require("./Business_Units_Security/RiskAssessme
 const SocTeamPerformanceRoutes = require("./Business_Units_Security/SocTeamPerformanceRoutes");
 const IncidentsByCategoryRoutes = require("./Business_Units_Security/IncidentsByCategoryRoutes");
 const AlertTypeDistributionRoutes = require("./Business_Units_Security/AlertTypeDistributionRoutes");
+const VulnerabilityByAssetTypeRoutes = require("./Business_Units_Security/VulnerabilityByAssetTypeRoutes");
 
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
@@ -317,6 +318,10 @@ const mountRoutes = (app) => {
   app.use(
     "/api/bu-security/alert-type-distribution",
     AlertTypeDistributionRoutes
+  );
+  app.use(
+    "/api/bu-security/vulnerability-by-asset-type",
+    VulnerabilityByAssetTypeRoutes
   );
   /*****************  Bu Security ***************************/
 
