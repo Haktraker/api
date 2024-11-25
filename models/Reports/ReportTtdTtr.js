@@ -18,6 +18,6 @@ const ReportTtdTtr = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportTtdTtr.index({ month: 1, indicator: 1 }, { unique: true });
+// ReportTtdTtr.index({ month: 1, indicator: 1 }, { unique: true });
 
 module.exports = mongoose.model("ReportTtdTtr", ReportTtdTtr);

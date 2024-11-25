@@ -7,26 +7,24 @@ const ReportSecurityBreachIndicators = new mongoose.Schema(
       trim: true,
     },
     year: { type: String }, // Add year field
-
-    score: {
-      type: String,
-    },
-    indicator: {
-      type: String,
-      enum: [
-        "Compromised Employees",
-        "Account Take Over",
-        "3rd Party Leaked Credentials",
-        "Brand Reputation",
-      ],
-    },
+    indicators: [
+      {
+        indicatorName: {
+          type: String,
+          enum: [
+            "Compromised Employees",
+            "Account Take Over",
+            "3rd Party Leaked Credentials",
+            "Brand Reputation",
+          ],
+        },
+        score: {
+          type: String,
+        },
+      },
+    ],
   },
   { timestamps: true }
-);
-
-ReportSecurityBreachIndicators.index(
-  { month: 1, indicator: 1 },
-  { unique: true }
 );
 
 module.exports = mongoose.model(

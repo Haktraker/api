@@ -21,6 +21,9 @@ const BrandReputationSchema = new mongoose.Schema(
     mitigationSteps: {
       type: String,
     },
+    time: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

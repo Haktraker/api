@@ -22,10 +22,10 @@ const ReportDigitalRiskIntelligence = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportDigitalRiskIntelligence.index(
-  { indicator: 1, month: 1 },
-  { unique: true }
-);
+// ReportDigitalRiskIntelligence.index(
+//   { indicator: 1, month: 1 },
+//   { unique: true }
+// );
 
 module.exports = mongoose.model(
   "ReportDigitalRiskIntelligence",

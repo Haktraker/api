@@ -8,6 +8,6 @@ const ReportAttackTrendSchema = new mongoose.Schema({
   year: { type: String }, // Add year field
 });
 
-ReportAttackTrendSchema.index({ tactic: 1, month: 1 }, { unique: true });
+// ReportAttackTrendSchema.index({ tactic: 1, month: 1 }, { unique: true });
 
 module.exports = mongoose.model("ReportAttackTrend", ReportAttackTrendSchema);

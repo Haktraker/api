@@ -13,7 +13,7 @@ const ReportCyberResilienceTimeTime = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportCyberResilienceTimeTime.index({ hours: 1, month: 1 }, { unique: true });
+// ReportCyberResilienceTimeTime.index({ hours: 1, month: 1 }, { unique: true });
 
 module.exports = mongoose.model(
   "ReportCyberResilienceTimeTime",

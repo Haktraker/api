@@ -8,6 +8,6 @@ const ReportCyberRatingSchema = new mongoose.Schema({
   year: { type: String }, // Add year field
 });
 
-ReportCyberRatingSchema.index({ category: 1, month: 1 }, { unique: true });
+// ReportCyberRatingSchema.index({ category: 1, month: 1 }, { unique: true });
 
 module.exports = mongoose.model("ReportCyberRating", ReportCyberRatingSchema);

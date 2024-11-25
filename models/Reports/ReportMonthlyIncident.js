@@ -15,6 +15,6 @@ const ReportMonthlyIncident = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportMonthlyIncident.index({ month: 1 }, { unique: true });
+// ReportMonthlyIncident.index({ month: 1 }, { unique: true });
 
 module.exports = mongoose.model("ReportMonthlyIncident", ReportMonthlyIncident);

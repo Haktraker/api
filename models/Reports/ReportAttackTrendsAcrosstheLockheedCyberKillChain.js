@@ -15,10 +15,10 @@ const ReportAttackTrendsAcrosstheLockheedCyberKillChain = new mongoose.Schema(
   { timestamps: true }
 );
 
-ReportAttackTrendsAcrosstheLockheedCyberKillChain.index(
-  { year: 1, month: 1 },
-  { unique: true }
-);
+// ReportAttackTrendsAcrosstheLockheedCyberKillChain.index(
+//   { year: 1, month: 1 },
+//   { unique: true }
+// );
 module.exports = mongoose.model(
   "ReportAttackTrendsAcrosstheLockheedCyberKillChain",
   ReportAttackTrendsAcrosstheLockheedCyberKillChain
