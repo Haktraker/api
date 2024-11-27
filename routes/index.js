@@ -91,7 +91,6 @@ const RealTimeActivityFeedRoutes = require("./User_Behavior/RealTimeActivityFeed
 
 /**********************  UBA *********************************************/
 /**********************  Bu Security *********************************************/
-/**********************  Bu Security *********************************************/
 const BuAlertsRoutes = require("./Business_Units_Security/BuAlertsRoutes");
 const AlertSeverityTrendRoutes = require("./Business_Units_Security/AlertSeverityTrendRoutes");
 const CompanyRiskScoresRoutes = require("./Business_Units_Security/CompanyRiskScoresRoutes");
@@ -104,6 +103,16 @@ const IncidentsByCategoryRoutes = require("./Business_Units_Security/IncidentsBy
 const AlertTypeDistributionRoutes = require("./Business_Units_Security/AlertTypeDistributionRoutes");
 const VulnerabilityByAssetTypeRoutes = require("./Business_Units_Security/VulnerabilityByAssetTypeRoutes");
 const NetworkSecurityRoutes = require("./Business_Units_Security/NetworkSecurityRoutes");
+/**********************  Bu Security *********************************************/
+
+/**********************  Non Compliance Gaps Dashboard *********************************************/
+const NonComplianceGapsDashboardRoutes = require("./NonComplianceGapsDashboard/NonComplianceGapsDashboardRoutes");
+/**********************  Non Compliance Gaps Dashboard *********************************************/
+
+/**********************  Security Breach Indicators Dashboard *********************************************/
+const SecurityBreachIndicatorsScoresRoutes = require("./SecurityBreachIndicatorsDashboard/SecurityBreachIndicatorsScoresRoutes");
+const SecurityIncidentTrendRoutes = require("./SecurityBreachIndicatorsDashboard/SecurityIncidentTrendRoutes");
+/**********************  Security Breach Indicators Dashboard *********************************************/
 
 // Attack Secnarios
 const MitreAttacksRoute = require("./Attack_Scenarios/MitreAttacksRoute");
@@ -326,6 +335,24 @@ const mountRoutes = (app) => {
   );
   app.use("/api/bu-security/network-security", NetworkSecurityRoutes);
   /*****************  Bu Security ***************************/
+
+  /**********************  Non Compliance Gaps Dashboard *********************************************/
+  app.use(
+    "/api/non-compliance-gaps-dashboard/compliance-gaps-by-frame-work",
+    NonComplianceGapsDashboardRoutes
+  );
+  /**********************  Non Compliance Gaps Dashboard *********************************************/
+
+  /**********************  Security Breach Indicators Dashboard *********************************************/
+  app.use(
+    "/api/security-breach-indicators-dashboard/security-breach-indicators-scores",
+    SecurityBreachIndicatorsScoresRoutes
+  );
+  app.use(
+    "/api/security-breach-indicators-dashboard/security-incident-trends",
+    SecurityIncidentTrendRoutes
+  );
+  /**********************  Security Breach Indicators Dashboard *********************************************/
 
   app.use("/api/users", userRoute);
   app.use("/api/auth", authRoute);

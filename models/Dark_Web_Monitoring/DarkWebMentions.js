@@ -29,6 +29,11 @@ const DarkWebMentionsSchema = new mongoose.Schema(
       type: String,
       enum: ["credentials", "corporate assets", "brand mentions"],
     },
+    status:{
+      type: String,
+      enum: ["investigating", "resolved", "unresolved"],
+      default: "unresolved",
+    },
     details: [
       {
         user: {
