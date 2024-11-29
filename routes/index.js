@@ -22,8 +22,8 @@ const attackSurfaceRoute = require("./attackSurfaceRoute");
 const brandReputationRoute = require("./brandReputationRoute");
 // Vulnerabilities Intelligences
 const vulnerabilitiesIntelligencesRoute = require("./vulnerabilitiesIntelligencesRoute");
-// EDRXDRDetection
-const EDRXDRDetectionsRoute = require("./Detections/EDRXDRDetectionsRoute");
+// ThreatDetection
+const ThreatDetectionsRoute = require("./Detections/ThreatDetectionsRoute");
 // NDRDetection
 const NDRDetectionsRoute = require("./Detections/NDRDetectionsRoute");
 
@@ -166,7 +166,7 @@ const mountRoutes = (app) => {
     vulnerabilitiesIntelligencesRoute
   );
   // EDRXDR Detections
-  app.use("/api/detections/edrxdr-detections", EDRXDRDetectionsRoute);
+  app.use("/api/detections/threat-detections", ThreatDetectionsRoute);
   // NDR Detections
   app.use("/api/detections/ndr-detections", NDRDetectionsRoute);
   app.use("/api/attack-scenarios/mitre-attacks", MitreAttacksRoute);
