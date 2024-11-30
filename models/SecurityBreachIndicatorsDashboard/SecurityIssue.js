@@ -32,7 +32,8 @@ const securityIssueSchema = new mongoose.Schema(
         lastUpdated: {
           type: String,
         },
-      },
+      _id:false
+    },
     ],
   },
   {
