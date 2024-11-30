@@ -11,8 +11,10 @@ const ComplianceScore = new mongoose.Schema(
           {
             complianceName: { type: String },
             count: { type: Number },
+            _id: false,
           },
         ],
+        _id: false,
       },
     ],
   },

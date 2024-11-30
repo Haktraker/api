@@ -117,6 +117,7 @@ const NetworkAnomaliesRoutes = require("./SecurityBreachIndicatorsDashboard/Netw
 const UserRiskDistributionRoutes = require("./SecurityBreachIndicatorsDashboard/UserRiskDistributionRoutes");
 const VulnerabilityStatusRoutes = require("./SecurityBreachIndicatorsDashboard/VulnerabilityStatusRoutes");
 const ComplianceScoreRoutes = require("./SecurityBreachIndicatorsDashboard/ComplianceScoreRoutes");
+const SecurityIssueRoutes = require("./SecurityBreachIndicatorsDashboard/SecurityIssueRoutes");
 /**********************  Security Breach Indicators Dashboard *********************************************/
 
 // Attack Secnarios
@@ -376,6 +377,10 @@ const mountRoutes = (app) => {
   app.use(
     "/api/security-breach-indicators-dashboard/compliance-score",
     ComplianceScoreRoutes
+  );
+  app.use(
+    "/api/security-breach-indicators-dashboard/security-issue",
+    SecurityIssueRoutes
   );
   /**********************  Security Breach Indicators Dashboard *********************************************/
 
