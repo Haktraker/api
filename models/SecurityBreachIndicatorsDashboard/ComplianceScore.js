@@ -7,11 +7,11 @@ const ComplianceScore = new mongoose.Schema(
     bu: [
       {
         buName: { type: String },
-        compliances:[
-            {
-                complianceName: { type: String },
-                score: { type: Number },
-            }
+        compliances: [
+          {
+            complianceName: { type: String },
+            count: { type: Number },
+          },
         ],
       },
     ],
