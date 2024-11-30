@@ -112,6 +112,10 @@ const NonComplianceGapsDashboardRoutes = require("./NonComplianceGapsDashboard/N
 /**********************  Security Breach Indicators Dashboard *********************************************/
 const SecurityBreachIndicatorsScoresRoutes = require("./SecurityBreachIndicatorsDashboard/SecurityBreachIndicatorsScoresRoutes");
 const SecurityIncidentTrendRoutes = require("./SecurityBreachIndicatorsDashboard/SecurityIncidentTrendRoutes");
+const MttrMttcMttmRoutes = require("./SecurityBreachIndicatorsDashboard/MttrMttcMttmRoutes");
+const NetworkAnomaliesRoutes = require("./SecurityBreachIndicatorsDashboard/NetworkAnomaliesRoutes");
+const UserRiskDistributionRoutes = require("./SecurityBreachIndicatorsDashboard/UserRiskDistributionRoutes");
+const VulnerabilityStatusRoutes = require("./SecurityBreachIndicatorsDashboard/VulnerabilityStatusRoutes");
 /**********************  Security Breach Indicators Dashboard *********************************************/
 
 // Attack Secnarios
@@ -351,6 +355,22 @@ const mountRoutes = (app) => {
   app.use(
     "/api/security-breach-indicators-dashboard/security-incident-trends",
     SecurityIncidentTrendRoutes
+  );
+  app.use(
+    "/api/security-breach-indicators-dashboard/mttr-mttc-mttm",
+    MttrMttcMttmRoutes
+  );
+  app.use(
+    "/api/security-breach-indicators-dashboard/network-anomalies",
+    NetworkAnomaliesRoutes
+  );
+  app.use(
+    "/api/security-breach-indicators-dashboard/user-risk-distribution",
+    UserRiskDistributionRoutes
+  );
+  app.use(
+    "/api/security-breach-indicators-dashboard/vulnerability-status",
+    VulnerabilityStatusRoutes
   );
   /**********************  Security Breach Indicators Dashboard *********************************************/
 
