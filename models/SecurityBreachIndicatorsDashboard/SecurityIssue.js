@@ -4,41 +4,36 @@ const securityIssueSchema = new mongoose.Schema(
   {
     month: { type: String },
     year: { type: String },
-    severity: {
-      type: String,
-      required: true,
-      enum: ["Critical", "High", "Medium", "Low"], // Restrict values to valid severity levels
-    },
-    vendor: {
-      type: String,
-      required: true,
-    },
-    issue: {
-      type: String,
-      required: true,
-    },
-    daysOpen: {
-      type: Number, // Number of days the issue has been open
-      required: true,
-      min: 0,
-    },
-    description: {
-      type: String,
-      default: null, // Optional field
-    },
-    affectedSystems: {
-      type: [String], // Array of system names
-      default: [], // Defaults to an empty array
-    },
-    recommendedAction: {
-      type: String,
-      default: null, // Optional field
-    },
-    lastUpdated: {
-      type: Date,
-      required: true,
-      default: Date.now,
-    },
+    bu: [
+      {
+        buName: { type: String },
+        severity: {
+          type: String,
+          enum: ["Critical", "High", "Medium", "Low"], // Restrict values to valid severity levels
+        },
+        vendor: {
+          type: String,
+        },
+        issue: {
+          type: String,
+        },
+        daysOpen: {
+          type: Number, // Number of days the issue has been open
+        },
+        description: {
+          type: String,
+        },
+        affectedSystems: {
+          type: [String], // Array of system names
+        },
+        recommendedAction: {
+          type: String,
+        },
+        lastUpdated: {
+          type: String,
+        },
+      },
+    ],
   },
   {
     timestamps: true, // Adds createdAt and updatedAt timestamps
@@ -48,4 +43,3 @@ const securityIssueSchema = new mongoose.Schema(
 // Create and export the model
 
 module.exports = mongoose.model("SecurityIssue", securityIssueSchema);
-
