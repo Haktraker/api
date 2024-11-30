@@ -22,7 +22,7 @@ const VulnerabilitiesIntelligenceSchema = new mongoose.Schema(
       type: String,
     },
     cvsScore: {
-      type: Number,
+      type: String,
     },
     exploitAvailability: {
       type: String,
