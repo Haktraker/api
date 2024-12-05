@@ -107,6 +107,11 @@ const NetworkSecurityRoutes = require("./Business_Units_Security/NetworkSecurity
 
 /**********************  Non Compliance Gaps Dashboard *********************************************/
 const NonComplianceGapsDashboardRoutes = require("./NonComplianceGapsDashboard/NonComplianceGapsDashboardRoutes");
+const ComplianceTrendRoutes = require("./NonComplianceGapsDashboard/ComplianceTrendRoutes");
+const ControlCategoryPerformanceRoutes = require("./NonComplianceGapsDashboard/ControlCategoryPerformanceRoutes");
+const ComplianceRiskDistributionRoutes = require("./NonComplianceGapsDashboard/ComplianceRiskDistributionRoutes");
+const BusinessUnitPerformanceRoutes = require("./NonComplianceGapsDashboard/BusinessUnitPerformanceRoutes");
+const FrameWorkInfoRoutes = require("./NonComplianceGapsDashboard/FrameWorkInfoRoutes");
 /**********************  Non Compliance Gaps Dashboard *********************************************/
 
 /**********************  Security Breach Indicators Dashboard *********************************************/
@@ -346,6 +351,26 @@ const mountRoutes = (app) => {
   app.use(
     "/api/non-compliance-gaps-dashboard/compliance-gaps-by-frame-work",
     NonComplianceGapsDashboardRoutes
+  );
+  app.use(
+    "/api/non-compliance-gaps-dashboard/compliance-trend",
+    ComplianceTrendRoutes
+  );
+  app.use(
+    "/api/non-compliance-gaps-dashboard/control-category-performance",
+    ControlCategoryPerformanceRoutes
+  );
+  app.use(
+    "/api/non-compliance-gaps-dashboard/compliance-risk-distribution",
+    ComplianceRiskDistributionRoutes
+  );
+  app.use(
+    "/api/non-compliance-gaps-dashboard/business-unit-performance",
+    BusinessUnitPerformanceRoutes
+  );
+  app.use(
+    "/api/non-compliance-gaps-dashboard/frame-work-info",
+    FrameWorkInfoRoutes
   );
   /**********************  Non Compliance Gaps Dashboard *********************************************/
 
