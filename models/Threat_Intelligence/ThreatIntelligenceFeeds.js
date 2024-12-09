@@ -15,6 +15,9 @@ const ThreatIntelligenceFeedsSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    time:{
+      type:String
+    }
   },
   { timestamps: true }
 );

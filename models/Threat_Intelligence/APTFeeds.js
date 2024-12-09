@@ -20,6 +20,9 @@ const APTFeedsSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    time: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -14,7 +14,7 @@ const GeoWatch = new mongoose.Schema(
     region: {
       type: String,
     },
-    detectionTime: {
+    time: {
       type: Date,
     },
     source: {

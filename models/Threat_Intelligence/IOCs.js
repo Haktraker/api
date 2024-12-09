@@ -12,6 +12,9 @@ const IOCsSchema = new mongoose.Schema(
     threatType: { type: String },
     source: { type: String },
     description: { type: String },
+    time: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
