@@ -13,27 +13,33 @@ const ComplianceGapsByFrameWorkSchema = new mongoose.Schema(
         bu_name: {
           type: String,
         },
-        severity: {
-          severityName: {
-            type: String,
-            enum: ["High", "Medium", "Low", "Critical"],
-            default: "Low",
+        severity: [
+          {
+            severityName: {
+              type: String,
+              enum: ["High", "Medium", "Low", "Critical"],
+              default: "Low",
+            },
+            score: {
+              type: Number,
+              default: 0,
+            },
           },
-          score: {
-            type: Number,
-            default: 0,
-          },
-        },
+        ],
         framework: [
           {
             frameworkName: {
               type: String,
-              enum: ["Non-Compliant", "Compliant"],
-              default: "Compliant",
+              enum: ["ISO 27001", "NIST CSF", "PDPL", "CIS Controls"],
             },
             frameworkScore: {
               type: Number,
               default: 0,
+            },
+            status: {
+              type: String,
+              enum: ["Compliant", "Non-Compliant"],
+              default: "Non-Compliant",
             },
           },
         ],
