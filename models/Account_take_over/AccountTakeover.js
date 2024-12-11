@@ -30,6 +30,9 @@ const AccountTakeoverSchema = new mongoose.Schema(
       enum: ["investigating", "resolved", "unresolved"],
       default: "unresolved",
     },
+    time: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
