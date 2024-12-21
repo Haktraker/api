@@ -8,9 +8,13 @@ const AttackSurfaceSchema = new mongoose.Schema(
     affectedSystems: {
       type: String,
     },
-    openPorts: {
-      type: [String],
-    },
+    openPorts: [
+      {
+        port: {
+          type: String,
+        },
+      },
+    ],
     services: {
       type: String,
     },
