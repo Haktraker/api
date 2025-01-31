@@ -11,15 +11,4 @@ const SecurityEventSchema = new mongoose.Schema({
   quarter: { type: Number, required: [true, "quarter required"] },
 });
 
-SecurityEventSchema.index(
-  {
-    securityEvents: 1,
-    alertVolume: 1,
-    incident: 1,
-    atoDarkWebASM: 1,
-    month: 1,
-  },
-  { unique: true }
-);
-
 module.exports = mongoose.model("SecurityEvent", SecurityEventSchema);

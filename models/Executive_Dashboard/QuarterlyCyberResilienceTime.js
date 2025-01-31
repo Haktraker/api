@@ -14,8 +14,6 @@ const QuarterlyCyberResilienceTime = new mongoose.Schema(
   { timestamps: true }
 );
 
-QuarterlyCyberResilienceTime.index({ hours: 1, month: 1 }, { unique: true });
-
 module.exports = mongoose.model(
   "QuarterlyCyberResilienceTime",
   QuarterlyCyberResilienceTime

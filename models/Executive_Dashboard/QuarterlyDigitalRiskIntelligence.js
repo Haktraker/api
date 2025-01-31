@@ -23,10 +23,6 @@ const QuarterlyDigitalRiskIntelligence = new mongoose.Schema(
   { timestamps: true }
 );
 
-QuarterlyDigitalRiskIntelligence.index(
-  { indicator: 1, year: 1, month: 1 },
-  { unique: true }
-);
 // QuarterlyDigitalRiskIntelligence
 
 module.exports = mongoose.model(

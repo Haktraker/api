@@ -25,10 +25,6 @@ const QuarterlySecurityBreachIndicators = new mongoose.Schema(
   { timestamps: true }
 );
 
-QuarterlySecurityBreachIndicators.index(
-  { month: 1, indicator: 1 },
-  { unique: true }
-);
 
 module.exports = mongoose.model(
   "QuarterlySecurityBreachIndicators",

@@ -18,11 +18,6 @@ const QuarterlyNonComplianceGapsOverview = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Add compound unique index on month and compliance
-QuarterlyNonComplianceGapsOverview.index(
-  { month: 1, compliance: 1 },
-  { unique: true }
-);
 
 module.exports = mongoose.model(
   "QuarterlyNonComplianceGapsOverview",

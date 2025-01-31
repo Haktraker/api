@@ -18,10 +18,7 @@ const QuarterlySupplyChainThreatExposure = new mongoose.Schema(
   { timestamps: true }
 );
 
-QuarterlySupplyChainThreatExposure.index(
-  { chian: 1, month: 1 },
-  { unique: true }
-);
+
 
 module.exports = mongoose.model(
   "QuarterlySupplyChainThreatExposure",

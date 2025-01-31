@@ -26,10 +26,7 @@ const QuarterlyThreatCompositionOverview = new mongoose.Schema(
   { timestamps: true }
 );
 
-QuarterlyThreatCompositionOverview.index(
-  { month: 1, threatType: 1 },
-  { unique: true }
-);
+
 
 module.exports = mongoose.model(
   "QuarterlyThreatCompositionOverview",

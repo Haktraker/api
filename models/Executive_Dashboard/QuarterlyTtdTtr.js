@@ -19,6 +19,5 @@ const QuarterlyTtdTtr = new mongoose.Schema(
   { timestamps: true }
 );
 
-QuarterlyTtdTtr.index({ month: 1, indicator: 1 }, { unique: true });
 
 module.exports = mongoose.model("QuarterlyTtdTtr", QuarterlyTtdTtr);

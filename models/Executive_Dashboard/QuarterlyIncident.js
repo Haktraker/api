@@ -16,6 +16,5 @@ const Quarterlyincident = new mongoose.Schema(
   { timestamps: true }
 );
 
-Quarterlyincident.index({ month: 1 }, { unique: true });
 
 module.exports = mongoose.model("Quarterlyincident", Quarterlyincident);

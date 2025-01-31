@@ -9,7 +9,6 @@ const QuarterlyCyberRatingSchema = new mongoose.Schema({
   quarter: { type: Number, required: [true, "quarter required"] },
 });
 
-QuarterlyCyberRatingSchema.index({ category: 1, month: 1 }, { unique: true });
 
 module.exports = mongoose.model(
   "QuarterlyCyberRating",
